@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); color: var(--ac-fg); }
+  .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .swatch {
+    aspect-ratio: 1.4 / 1; border-radius: var(--ac-radius-md);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 12px;
+    box-shadow: var(--ac-shadow-card);
+    color: #fff;
+    font-weight: var(--ac-weight-black);
+    min-height: 96px;
+  }
+  .swatch .name { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .swatch .hex  { font-family: var(--ac-font-mono); font-size: 11px; opacity: 0.85; margin-top: 2px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="swatch" style="background:#0082c2;">
+      <div class="name">Azul Principal</div><div class="hex">#0082C2</div>
+    </div>
+    <div class="swatch" style="background:#89bd24;">
+      <div class="name">Verde Splash</div><div class="hex">#89BD24</div>
+    </div>
+    <div class="swatch" style="background:#FFCA28; color: var(--ac-blue-900);">
+      <div class="name">Amarelo Lúdico</div><div class="hex">#FFCA28</div>
+    </div>
+    <div class="swatch" style="background:#ba8dc0;">
+      <div class="name">Lilás</div><div class="hex">#BA8DC0</div>
+    </div>
+    <div class="swatch" style="background:#46b9b0;">
+      <div class="name">Verde-Água</div><div class="hex">#46B9B0</div>
+    </div>
+    <div class="swatch" style="background:#f08055;">
+      <div class="name">Laranja</div><div class="hex">#F08055</div>
+    </div>
+    <div class="swatch" style="background:#d1104a;">
+      <div class="name">Magenta</div><div class="hex">#D1104A</div>
+    </div>
+    <div class="swatch" style="background:#385725;">
+      <div class="name">Verde Floresta</div><div class="hex">#385725</div>
+    </div>
+  </div>
+</body>
+</html>

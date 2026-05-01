@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 16px; background: #fff; font-family: var(--ac-font-body); display: flex; gap: 14px; flex-wrap: wrap; }
+  .field { display: flex; flex-direction: column; gap: 6px; min-width: 220px; flex: 1; }
+  .field label { font-size: 12px; font-weight: 900; letter-spacing: 0.06em; color: var(--ac-blue); text-transform: uppercase; }
+  .input, .select {
+    padding: 12px 16px; border-radius: 999px;
+    border: 2px solid var(--ac-border); background: #fff;
+    font-family: var(--ac-font-body); font-size: 15px; font-weight: 600; color: var(--ac-fg);
+    outline: none; transition: border-color .2s, box-shadow .2s;
+  }
+  .select {
+    appearance: none; -webkit-appearance: none; -moz-appearance: none;
+    padding-right: 44px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230082C2' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+  }
+  .input:focus, .select:focus { border-color: var(--ac-blue); box-shadow: 0 0 0 4px var(--ac-blue-100); }
+  .input::placeholder { color: var(--ac-fg-soft); font-weight: 400; }
+  .check { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 16px; background: var(--ac-blue-50); font-size: 14px; font-weight: 700; color: var(--ac-fg); cursor: pointer; }
+  .check input { width: 20px; height: 20px; accent-color: var(--ac-blue); }
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--ac-yellow); color: var(--ac-blue-900); font-weight: 900; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+  .badge.red { background: var(--ac-red); color: #fff; }
+  .badge.green { background: var(--ac-green-splash); color: #1a3a08; }
+  .row2 { display: flex; gap: 8px; align-items: center; }
+</style>
+</head>
+<body>
+  <div class="field">
+    <label>Email da família</label>
+    <input class="input" placeholder="voce@familia.com">
+  </div>
+  <div class="field">
+    <label>Nível</label>
+    <select class="select"><option>Nv1 · 3–4 anos</option><option>Nv2 · 4–5 anos</option><option>ABC · Alfabetização</option></select>
+  </div>
+  <div class="field" style="justify-content:flex-end;">
+    <label class="check"><input type="checkbox" checked>Quero receber novidades</label>
+  </div>
+  <div class="field" style="justify-content:flex-end;">
+    <div class="row2"><span class="badge">Novo</span><span class="badge red">Top</span><span class="badge green">Lúdico</span></div>
+  </div>
+</body>
+</html>

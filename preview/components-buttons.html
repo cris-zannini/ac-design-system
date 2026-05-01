@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  body { margin: 0; padding: 18px; background: #fff; font-family: var(--ac-font-body); }
+  .grid { display: grid; grid-template-columns: 70px repeat(4, 1fr); gap: 12px 10px; align-items: center; }
+  .col-label { font-family: var(--ac-font-mono); font-size: 10px; color: var(--ac-fg-soft); letter-spacing: 0.06em; text-transform: uppercase; }
+  .row-label { font-family: var(--ac-font-mono); font-size: 10px; color: var(--ac-fg-soft); letter-spacing: 0.06em; text-transform: uppercase; padding-right: 4px; text-align: right; }
+  .b {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 10px 16px; border-radius: 999px; border: 0; cursor: pointer;
+    font-family: var(--ac-font-body); font-weight: 900; font-size: 13px;
+    white-space: nowrap;
+  }
+  .b--icon { padding: 9px; width: 38px; height: 38px; }
+  .b--blue   { background: #0082C2; color: #fff; box-shadow: 0 3px 0 #005A88; }
+  .b--green  { background: #89BD24; color: #fff; box-shadow: 0 3px 0 #5E8418; }
+  .b--ghost  { background: transparent; color: #0082C2; box-shadow: inset 0 0 0 2px #0082C2; }
+  .b--disabled { background: #E5E9EC; color: #9AA7B0; box-shadow: none; cursor: not-allowed; }
+  .b i { width: 15px; height: 15px; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div></div>
+    <div class="col-label">Texto</div>
+    <div class="col-label">Ícone ←</div>
+    <div class="col-label">Ícone →</div>
+    <div class="col-label">Só ícone</div>
+
+    <div class="row-label">Azul</div>
+    <div><button class="b b--blue">Começar</button></div>
+    <div><button class="b b--blue"><i data-lucide="play" stroke-width="2.5"></i>Começar</button></div>
+    <div><button class="b b--blue">Continuar<i data-lucide="arrow-right" stroke-width="2.5"></i></button></div>
+    <div><button class="b b--blue b--icon"><i data-lucide="heart" stroke-width="2.5"></i></button></div>
+
+    <div class="row-label">Verde</div>
+    <div><button class="b b--green">Confirmar</button></div>
+    <div><button class="b b--green"><i data-lucide="check" stroke-width="2.5"></i>Confirmar</button></div>
+    <div><button class="b b--green">Adicionar<i data-lucide="plus" stroke-width="2.5"></i></button></div>
+    <div><button class="b b--green b--icon"><i data-lucide="check" stroke-width="2.5"></i></button></div>
+
+    <div class="row-label">Ghost</div>
+    <div><button class="b b--ghost">Buscar</button></div>
+    <div><button class="b b--ghost"><i data-lucide="search" stroke-width="2.5"></i>Buscar</button></div>
+    <div><button class="b b--ghost">Saiba mais<i data-lucide="arrow-right" stroke-width="2.5"></i></button></div>
+    <div><button class="b b--ghost b--icon"><i data-lucide="search" stroke-width="2.5"></i></button></div>
+
+    <div class="row-label">Disabled</div>
+    <div><button class="b b--disabled" disabled>Começar</button></div>
+    <div><button class="b b--disabled" disabled><i data-lucide="play" stroke-width="2.5"></i>Começar</button></div>
+    <div><button class="b b--disabled" disabled>Continuar<i data-lucide="arrow-right" stroke-width="2.5"></i></button></div>
+    <div><button class="b b--disabled b--icon" disabled><i data-lucide="heart" stroke-width="2.5"></i></button></div>
+  </div>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

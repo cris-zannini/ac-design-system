@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 32px; background: #fff; font-family: var(--ac-font-body); color: var(--ac-fg); }
+  .row { display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+  .demo { width: 140px; height: 80px; background: #fff; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-weight: 900; color: var(--ac-blue); font-size: 13px; }
+  .sticker { box-shadow: var(--ac-shadow-sticker); }
+  .card    { box-shadow: var(--ac-shadow-card); }
+  .pop     { box-shadow: var(--ac-shadow-pop); }
+  .button  { box-shadow: var(--ac-shadow-button); background: var(--ac-blue); color: #fff; }
+  small { display: block; margin-top: 6px; font-family: var(--ac-font-mono); font-size: 10px; color: var(--ac-fg-soft); font-weight: 400; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="demo sticker">Sticker<small>logo offset</small></div>
+    <div class="demo card">Card<small>blue lift</small></div>
+    <div class="demo pop">Pop<small>hover</small></div>
+    <div class="demo button">Button<small style="color:#cce4f1">hard drop</small></div>
+  </div>
+</body>
+</html>

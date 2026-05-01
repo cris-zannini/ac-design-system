@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 20px; background: #fff; font-family: var(--ac-font-body); color: var(--ac-fg); }
+  .row { display: flex; gap: 16px; align-items: flex-end; justify-content: space-between; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 8px; flex: 1; }
+  .box { width: 80px; height: 80px; background: #0082C2; }
+  .pill { width: 110px; height: 50px; background: #0082C2; border-radius: 999px; }
+  .label { font-family: var(--ac-font-mono); font-size: 11px; color: var(--ac-fg-muted); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box" style="border-radius:8px;"></div><div class="label">sm · 8</div></div>
+    <div class="item"><div class="box" style="border-radius:16px;"></div><div class="label">md · 16</div></div>
+    <div class="item"><div class="box" style="border-radius:24px;"></div><div class="label">lg · 24</div></div>
+    <div class="item"><div class="box" style="border-radius:32px;"></div><div class="label">xl · 32</div></div>
+    <div class="item"><div class="pill"></div><div class="label">pill · 999</div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); }
+  .levels { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+  .lvl {
+    aspect-ratio: 1 / 1.1;
+    border-radius: 18px;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    color: #fff;
+    box-shadow: var(--ac-shadow-card);
+    position: relative;
+    overflow: hidden;
+  }
+  .lvl::before {
+    content: "";
+    position: absolute; inset: -20%;
+    background: rgba(255,255,255,0.12);
+    border-radius: 60% 40% 55% 45% / 48% 60% 40% 52%;
+    transform: rotate(-15deg);
+  }
+  .lvl b { font-family: var(--ac-font-display); font-size: 26px; letter-spacing: 0.02em; position: relative; }
+  .lvl span { font-size: 10px; font-weight: 900; letter-spacing: 0.14em; opacity: 0.95; position: relative; }
+</style>
+</head>
+<body>
+  <div class="levels">
+    <div class="lvl" style="background:#BA8DC0;"><b>NV1</b><span>LILÁS</span></div>
+    <div class="lvl" style="background:#46B9B0;"><b>NV2</b><span>VERDE-ÁGUA</span></div>
+    <div class="lvl" style="background:#F08055;"><b>NV3</b><span>LARANJA</span></div>
+    <div class="lvl" style="background:#D1104A;"><b>NV4</b><span>MAGENTA</span></div>
+    <div class="lvl" style="background:#89BD24;"><b>NV5</b><span>VERDE SPLASH</span></div>
+    <div class="lvl" style="background:#0082C2;"><b>ABC</b><span>AZUL PRINCIPAL</span></div>
+  </div>
+</body>
+</html>

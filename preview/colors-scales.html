@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); }
+  .scale { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; }
+  .chip { aspect-ratio: 1; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.06); position: relative; }
+  .chip span { position: absolute; bottom: 6px; left: 8px; right: 8px; font-size: 10px; font-family: var(--ac-font-mono); color: rgba(255,255,255,0.95); text-shadow: 0 1px 1px rgba(0,0,0,.25); }
+  .row { margin-bottom: 12px; }
+  .label { font-weight: 900; font-size: 12px; letter-spacing: 0.1em; color: var(--ac-blue); text-transform: uppercase; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="label">Blue</div>
+    <div class="scale">
+      <div class="chip" style="background:#EDF7FD;"><span style="color:#004C75;text-shadow:none">50</span></div>
+      <div class="chip" style="background:#DCEEFA;"><span style="color:#004C75;text-shadow:none">100</span></div>
+      <div class="chip" style="background:#0096C7;"><span>500</span></div>
+      <div class="chip" style="background:#0086C9;"><span>600</span></div>
+      <div class="chip" style="background:#0076B6;"><span>700</span></div>
+      <div class="chip" style="background:#005F94;"><span>800</span></div>
+      <div class="chip" style="background:#004C75;"><span>900</span></div>
+      <div class="chip" style="background:#0E2A3D;"><span>fg</span></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="label">Green / Red / Yellow</div>
+    <div class="scale">
+      <div class="chip" style="background:#DCEDC8;"><span style="color:#33691E;text-shadow:none">G100</span></div>
+      <div class="chip" style="background:#8BC34A;"><span>G500</span></div>
+      <div class="chip" style="background:#689F38;"><span>G700</span></div>
+      <div class="chip" style="background:#FFCDD2;"><span style="color:#B71C1C;text-shadow:none">R100</span></div>
+      <div class="chip" style="background:#E53935;"><span>R500</span></div>
+      <div class="chip" style="background:#C62828;"><span>R700</span></div>
+      <div class="chip" style="background:#FFCA28;"><span style="color:#704600;text-shadow:none">Y500</span></div>
+      <div class="chip" style="background:#FFB300;"><span style="color:#704600;text-shadow:none">Y600</span></div>
+    </div>
+  </div>
+</body>
+</html>

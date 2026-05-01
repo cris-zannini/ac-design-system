@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); }
+  .row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .card {
+    width: 200px; padding: 18px; background: #fff;
+    border-radius: var(--ac-radius-lg);
+    box-shadow: var(--ac-shadow-card);
+  }
+  .card.sticker { box-shadow: var(--ac-shadow-sticker); }
+  .card.bordered { border: 1.5px solid var(--ac-blue); box-shadow: 0 4px 0 var(--ac-blue-900); }
+  .card.bordered-flat { border: 1.5px solid var(--ac-blue); box-shadow: none; }
+  .card h4 { margin: 0 0 4px; font-weight: 900; color: var(--ac-blue); font-size: 16px; }
+  .card p { margin: 0; font-size: 13px; color: var(--ac-fg-muted); line-height: 1.45; }
+  .tag { display:inline-block; padding: 4px 10px; border-radius: 999px; background: var(--ac-yellow); color: var(--ac-blue-900); font-size: 11px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="card">
+      <div class="tag">Nv2</div>
+      <h4>Apostila Verde-Água</h4>
+      <p>Atividades para 4–5 anos com traços coloridos e jogos.</p>
+    </div>
+    <div class="card sticker">
+      <div class="tag" style="background:var(--ac-red);color:#fff;">Novo</div>
+      <h4>ABC Brincando</h4>
+      <p>Alfabetização lúdica para os primeiros passos.</p>
+    </div>
+    <div class="card bordered">
+      <div class="tag" style="background:#89BD24;color:#fff;">Top</div>
+      <h4>Combo Família</h4>
+      <p>Todos os níveis num pacote bem feliz.</p>
+    </div>
+    <div class="card bordered-flat">
+      <div class="tag" style="background:#fff;color:#0082C2;border:1.5px solid #0082C2;">Info</div>
+      <h4>Bordered sem sombra</h4>
+      <p>Borda fina, sem elevação — pra blocos discretos.</p>
+    </div>
+  </div>
+</body>
+</html>
