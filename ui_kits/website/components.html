@@ -112,6 +112,28 @@
              uppercase leading-snug tracking-ac-wider text-on-yellow"&gt;Mais vendido&lt;/span&gt;</pre>
   </section>
 
+  <!-- ============================== TAG ============================== -->
+  <section>
+    <h2 class="ac-h2">Tag de categoria</h2>
+    <p><strong>Cor = nível. Ícone = categoria.</strong> Categorias do blog (e, no app, tipos de atividade) não têm cor própria: todas usam o mesmo chip azul e se distinguem pelo ícone e pelo nome. Assim a cor fica reservada para os níveis.</p>
+    <div class="demo">
+      <a class="ac-tag" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"/><rect x="3" y="14" width="7" height="7" rx="1"/><circle cx="17.5" cy="17.5" r="3.5"/></svg>Educação Infantil</a>
+      <a class="ac-tag" href="#" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Alfabetização</a>
+      <a class="ac-tag" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Atividades em Casa</a>
+      <a class="ac-tag" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>Desenvolvimento</a>
+    </div>
+    <pre>&lt;a class="ac-tag" href="/blog/alfabetizacao/"&gt;&lt;svg …book-open…/&gt;Alfabetização&lt;/a&gt;
+&lt;!-- categoria atual: aria-current="page" (ou .ac-tag--active) · sobre bg-dark: .ac-tag--on-dark --&gt;
+
+&lt;!-- Ícones (Lucide) das categorias do blog --&gt;
+Educação Infantil → shapes · Alfabetização → book-open · Atividades em Casa → house · Desenvolvimento → sprout
+
+&lt;!-- Tailwind --&gt;
+&lt;a class="inline-flex items-center gap-1.5 rounded-ac-pill bg-brand-blue-50 py-1.5 pl-2.5 pr-3.5 text-ac-meta
+          font-bold text-brand-blue-700 hover:bg-brand-blue-100"&gt;…&lt;/a&gt;</pre>
+    <p class="ac-small">Decoração dentro dos artigos (números de passo, setas de lista, etiquetas de fase) usa <code>blue-600</code>, ou a cor do nível quando o conteúdo é de um nível específico.</p>
+  </section>
+
   <!-- ============================== CARD ============================== -->
   <section>
     <h2 class="ac-h2">Card</h2>

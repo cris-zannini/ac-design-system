@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../fonts.css">
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); color: var(--ac-fg); }
+  .rule { display: flex; gap: 24px; margin-bottom: 18px; }
+  .rule > div { flex: 1; padding: 12px 14px; border: 2px solid var(--ac-border); border-radius: var(--ac-radius-md); font-size: 14px; }
+  .rule b { display: block; font-weight: 900; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--ac-fg-link); margin-bottom: 6px; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+  .lbl { width: 84px; font-family: var(--ac-font-mono); font-size: 10px; color: var(--ac-fg-soft); text-transform: uppercase; letter-spacing: .06em; }
+  .dots { display: flex; gap: 6px; }
+  .dots i { width: 22px; height: 22px; border-radius: 50%; display: block; }
+  .dark { background: var(--ac-bg-dark); padding: 12px 14px; border-radius: var(--ac-radius-lg); }
+  .dark .lbl { color: var(--ac-fg-on-dark-muted); }
+</style>
+</head>
+<body>
+  <div class="rule">
+    <div><b>Cor = nível</b>
+      <div class="dots"><i style="background:var(--ac-level-1)"></i><i style="background:var(--ac-level-2)"></i><i style="background:var(--ac-level-3)"></i><i style="background:var(--ac-level-4)"></i><i style="background:var(--ac-level-5)"></i><i style="background:var(--ac-level-abc)"></i></div>
+    </div>
+    <div><b>Ícone = categoria</b>Categorias não têm cor própria: chip azul + ícone + nome.</div>
+  </div>
+  <div class="row"><span class="lbl">Blog</span>
+    <a class="ac-tag" href="#"><i data-lucide="shapes" stroke-width="2.5"></i>Educação Infantil</a>
+    <a class="ac-tag" href="#" aria-current="page"><i data-lucide="book-open" stroke-width="2.5"></i>Alfabetização</a>
+    <a class="ac-tag" href="#"><i data-lucide="house" stroke-width="2.5"></i>Atividades em Casa</a>
+    <a class="ac-tag" href="#"><i data-lucide="sprout" stroke-width="2.5"></i>Desenvolvimento</a>
+  </div>
+  <div class="row"><span class="lbl">App</span>
+    <span class="ac-tag"><i data-lucide="pencil" stroke-width="2.5"></i>Coordenação motora</span>
+    <span class="ac-tag"><i data-lucide="calculator" stroke-width="2.5"></i>Matemática</span>
+    <span class="ac-tag"><i data-lucide="palette" stroke-width="2.5"></i>Artes</span>
+  </div>
+  <div class="row dark"><span class="lbl">On-dark</span>
+    <span class="ac-tag ac-tag--on-dark"><i data-lucide="book-open" stroke-width="2.5"></i>Alfabetização</span>
+    <span class="ac-tag ac-tag--on-dark"><i data-lucide="sprout" stroke-width="2.5"></i>Desenvolvimento</span>
+  </div>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

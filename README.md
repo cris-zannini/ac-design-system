@@ -131,6 +131,18 @@ The palette is **highly saturated, RGB-vibrant, childhood-coded**. Pastels, desa
 
 Put `.ac-level-N` on any ancestor and `--level` components (`ac-btn--level`, `ac-badge--level`, `ac-card--level`) pick up that level's colors.
 
+### Color means level; icon means category
+Color is reserved for the apostila levels — on the site today and across the app, where the child's level themes the screen. **Categories never get their own color** (the palette has no hues left that don't already mean a level). Blog categories and, in the app, activity types use the same blue chip (`.ac-tag`) and are told apart by **icon + name**:
+
+| Category | Lucide icon |
+|---|---|
+| Educação Infantil | `shapes` |
+| Alfabetização | `book-open` |
+| Atividades em Casa | `house` |
+| Desenvolvimento | `sprout` |
+
+Decoration inside articles (step numbers, list arrows, phase labels) uses `--ac-blue-600`, or the level color when the content belongs to one level. Off-palette colors (Material Design `#E91E63`, `#5C6BC0`, `#00ACC1`…) are not allowed.
+
 ### Contrast rules (WCAG AA)
 Run `python3 scripts/check_contrast.py` after changing any color — every declared pair must pass.
 - **Never white text on green splash** (2.24:1), teal, lilac or orange. Use navy (`--ac-on-green`, `--ac-level-N-on`).
@@ -139,7 +151,15 @@ Run `python3 scripts/check_contrast.py` after changing any color — every decla
 - Inputs use `--ac-border-strong` (3.54:1); `--ac-border` is for dividers and cards only.
 
 ### Type
-- **One family: Nunito.** Full family in `fonts/` — ExtraLight 200 through Black 900, each with italics (16 files). Official across web, app and print.
+- **One family: Nunito.** Full family in `fonts/` — ExtraLight 200 through Black 900, each with italics (16 files), all declared in `fonts.css` and tokenized (`--ac-weight-*`). Official across web, app and print.
+- **Weight tiers** — all 8 weights exist, but each has a place:
+
+| Tier | Weights | Where |
+|---|---|---|
+| **Primary** | 400 · 700 · 900 | Every component, site and app. No DS class uses anything else. |
+| **Occasional** | 600 · 800 | Only with a reason (e.g. dense app UI: tabs, lists). The site loads them only if used. |
+| **Print only** | 200 · 300 · 500 | Apostilas and printed material. Not for screens — too thin for the brand and for small mobile text. |
+
 - **Display** — Nunito **Black (900)**, uppercase, slight negative tracking (`.ac-display`). No separate display face ships with this system.
 - **Headings** — Nunito 900 (h1–h3) / 800 (h4), sentence case.
 

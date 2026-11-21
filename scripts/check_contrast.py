@@ -61,6 +61,11 @@ PAIRS = [
     ("--ac-blue-50", "--ac-blue-700", AA, "badge padrão"),
     ("--ac-red-500", "--ac-on-red", AA, "badge vermelho"),
     ("--ac-neutral-100", "--ac-fg-muted", AA, "badge neutro"),
+    # Tag de categoria
+    ("--ac-blue-50", "--ac-blue-700", AA, "tag de categoria"),
+    ("--ac-blue-100", "--ac-blue-700", AA, "tag de categoria hover"),
+    ("--ac-blue-600", "--ac-on-blue", AA, "tag de categoria ativa"),
+    ("--ac-bg", "--ac-blue-600", AA, "decoração em artigo (números, setas)"),
     # Feedback
     ("--ac-success", "--ac-success-on", AA, "sucesso sólido"),
     ("--ac-success-bg", "--ac-success-fg", AA, "alerta sucesso"),

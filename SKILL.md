@@ -35,6 +35,8 @@ Then produce static HTML artifacts (or production code, if asked), copying asset
 - **Always** prefer the simplified/horizontal logo at small sizes (< 120 px wide).
 - **Primary CTA is green with navy text.** Never white text on green splash, teal, lilac or orange. Small blue text and blue buttons use `--ac-blue-600`, not the brand blue.
 - **Text is navy** (`--ac-fg`, `--ac-fg-muted`, `--ac-fg-soft`), never gray. Grays (`--ac-neutral-*`) are for surfaces and borders.
+- **Color = level, icon = category.** Never give a category (blog topic, activity type) its own color; use `.ac-tag` with an icon.
+- **Screen weights are 400, 700, 900.** 600/800 only with a reason; 200/300/500 are print only.
 - After changing any color, run `python3 scripts/check_contrast.py`.
 
 ## Substitutions to flag

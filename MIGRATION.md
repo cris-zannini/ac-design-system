@@ -15,7 +15,7 @@ Em `dist/css/input.css`, substitua o bloco `@theme inline { … }` do site por:
 
 Depois disso, o bloco `:root` do site (`--color-blue-primary`, `--color-text-body`, `--shadow-card`…) vira redundante. Ele pode ser apagado, trocando as referências em `body {}` por `var(--ac-fg)` e `var(--ac-bg)`.
 
-`fonts.css` **não** precisa ser importado: o site já carrega a Nunito via `INLINE_FONTS` no `build-pages.js`. Só que ele carrega apenas os pesos 400, 700 e 900. O DS usa 600 (`.ac-lead`) e 800 (`.ac-h4`), que hoje caem no peso mais próximo. Se forem usados, acrescente esses pesos ao `INLINE_FONTS`.
+`fonts.css` **não** precisa ser importado: o site já carrega a Nunito via `INLINE_FONTS` no `build-pages.js`, com os pesos 400, 700 e 900. Esses são exatamente os pesos da faixa principal do DS, que todos os componentes usam, então nada precisa mudar. Só acrescente 600 ou 800 ao `INLINE_FONTS` se alguma página passar a usar esses pesos de propósito.
 
 ## 2. Mudanças visuais intencionais (fazer em PRs separados)
 
@@ -66,7 +66,18 @@ Depois disso, o bloco `:root` do site (`--color-blue-primary`, `--color-text-bod
 | `#002233` | `brand-navy` |
 | `#F0F7FF` `#EFF4FF` | `bg-soft` (`#EDF7FD`) |
 
-**A decidir:** `#E91E63`, `#5C6BC0`, `#00ACC1`, `#9C27B0`, `#2196F3`, `#7B61FF` e `#00897B` são cores do Material Design e só aparecem em `dist/blog/` (6 arquivos), provavelmente como cor de categoria. O DS não tem categorias. Ou elas viram as cores de nível, ou ganham tokens próprios.
+### Categorias do blog: cor = nível, ícone = categoria
+
+As cores de categoria e de decoração do blog saem. Hoje são cores do Material Design, em `dist/blog/` (6 arquivos).
+
+| Hoje | Com o DS |
+|---|---|
+| chip `style="background-color:#E91E6315;color:#E91E63"` (Educação Infantil) | `<a class="ac-tag">` + ícone `shapes` |
+| chip `#5C6BC0` (Alfabetização) | `.ac-tag` + ícone `book-open` |
+| chip `#43A047` (Atividades em Casa) | `.ac-tag` + ícone `house` |
+| chip `#FB8C00` (Desenvolvimento) | `.ac-tag` + ícone `sprout` |
+| barrinha vertical colorida ao lado do título da seção | `bg-brand-blue-600` (ou removê-la) |
+| números de passo, setas, etiquetas de fase em `#00ACC1` `#9C27B0` `#2196F3` `#7B61FF` `#00897B` | `brand-blue-600` (texto) / `bg-brand-blue-600 text-on-blue` (sólido), ou a cor do nível quando o conteúdo for de um nível |
 
 ### Tamanhos de texto
 
@@ -96,6 +107,7 @@ Depois disso, o bloco `:root` do site (`--color-blue-primary`, `--color-text-bod
 | `.badge` | `.ac-badge` (+ variante) |
 | `.badge-outline` | `.ac-badge ac-badge--outline` |
 | `.badge-monochrome` | `.ac-badge ac-badge--on-dark ac-badge--lg` |
+| chips de categoria do blog | `.ac-tag` + ícone |
 | `carousel-wrap` / `carousel-track` + `/js/carousel.js` | `.ac-carousel` / `.ac-carousel__track` + `ui_kits/website/carousel.js` (opcional; o do site continua funcionando) |
 | cores de nível em páginas `/nivel-N/` | `class="ac-level-N"` no `<main>` e `ac-btn--level` / `ac-badge--level` / `ac-card--level` dentro |
 
