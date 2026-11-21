@@ -6,7 +6,7 @@ user-invocable: true
 
 # Aprenda em Casa — Design Skill
 
-Aprenda em Casa is a Brazilian children's-education brand with the tagline **"Brincando de Aprender"**. The visual language is loud, joyful, sticker-flat — saturated RGB colors, organic green splash blobs, rounded-cartoon display type, generous radii, infinite white grounds.
+Aprenda em Casa is a Brazilian children's-education brand with the tagline **"Brincando de Aprender"**. The visual language is loud, joyful and gently dimensional ("Volume" style: light top-to-bottom gradients, inner gloss, soft blue-tinted shadows) — saturated RGB colors, organic green splash blobs, rounded-cartoon display type, generous radii, infinite white grounds.
 
 ## How to use this skill
 

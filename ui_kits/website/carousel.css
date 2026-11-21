@@ -14,6 +14,7 @@
   scroll-behavior: smooth;
   scrollbar-width: none;
   border-radius: var(--ac-radius-lg);
+  box-shadow: var(--ac-shadow-card);
 }
 .ac-carousel__track::-webkit-scrollbar { display: none; }
 .ac-carousel__track:focus-visible { outline: 3px solid var(--ac-focus); outline-offset: 3px; }
@@ -35,7 +36,9 @@
   padding: 0;
   border: 0;
   border-radius: var(--ac-radius-pill);
-  background: rgba(14, 42, 61, 0.55);
+  background: linear-gradient(180deg, rgba(14, 42, 61, 0.55), rgba(14, 42, 61, 0.75));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 4px 12px -4px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
   color: var(--ac-white);
   cursor: pointer;
   place-items: center;

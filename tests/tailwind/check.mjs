@@ -29,6 +29,9 @@ const expectations = [
   ["tracking-ac-widest", "var(--ac-tracking-widest)"],
   ["rounded-ac-lg", "var(--ac-radius-lg)"],
   ["shadow-ac-card", "var(--ac-shadow-card)"],
+  ["shadow-ac-sm", "var(--ac-shadow-sm)"],
+  ["shadow-ac-gloss", "var(--ac-gloss)"],
+  ["from-brand-blue-top", "var(--ac-blue-top)"],
   ["ease-ac-bounce", "var(--ac-ease-bounce)"],
   ["font-display", "var(--ac-font-display)"],
   // Padrões do Tailwind precisam continuar apontando para os próprios tokens

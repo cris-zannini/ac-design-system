@@ -11,16 +11,19 @@
   .sticker { box-shadow: var(--ac-shadow-sticker); }
   .card    { box-shadow: var(--ac-shadow-card); }
   .pop     { box-shadow: var(--ac-shadow-pop); }
-  .button  { box-shadow: var(--ac-shadow-button); background: var(--ac-blue); color: #fff; }
+  .sm      { box-shadow: var(--ac-shadow-sm); }
+  .button  { box-shadow: var(--ac-shadow-button); background: linear-gradient(180deg, var(--ac-blue-top), var(--ac-blue-700)); color: #fff; border-radius: 999px; }
   small { display: block; margin-top: 6px; font-family: var(--ac-font-mono); font-size: 10px; color: var(--ac-fg-soft); font-weight: 400; }
 </style>
 </head>
 <body>
+  <p style="margin:0 0 24px;font-size:13px;color:var(--ac-fg-muted)">Estilo Volume (v1.2): sombras com blur em camadas, sempre azuladas.</p>
   <div class="row">
-    <div class="demo sticker">Sticker<small>logo offset</small></div>
-    <div class="demo card">Card<small>blue lift</small></div>
+    <div class="demo sm">Small<small>chip · tag</small></div>
+    <div class="demo card">Card<small>superfície</small></div>
     <div class="demo pop">Pop<small>hover</small></div>
-    <div class="demo button">Button<small style="color:#cce4f1">hard drop</small></div>
+    <div class="demo sticker">Sticker<small>contorno do logo</small></div>
+    <div class="demo button">Button<small style="color:#cce4f1">gradiente + brilho</small></div>
   </div>
 </body>
 </html>

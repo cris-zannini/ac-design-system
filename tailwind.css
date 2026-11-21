@@ -47,6 +47,7 @@
   --color-brand-navy:        var(--ac-navy);
 
   /* ---------- Escalas ---------- */
+  --color-brand-blue-top: var(--ac-blue-top);  /* topo do gradiente azul (Volume) */
   --color-brand-blue-50:  var(--ac-blue-50);
   --color-brand-blue-100: var(--ac-blue-100);
   --color-brand-blue-200: var(--ac-blue-200);
@@ -221,10 +222,12 @@
   --radius-ac-2xl:  var(--ac-radius-2xl);
   --radius-ac-pill: var(--ac-radius-pill);
 
+  --shadow-ac-sm:      var(--ac-shadow-sm);
   --shadow-ac-sticker: var(--ac-shadow-sticker);
   --shadow-ac-card:    var(--ac-shadow-card);
   --shadow-ac-pop:     var(--ac-shadow-pop);
   --shadow-ac-button:  var(--ac-shadow-button);
+  --shadow-ac-gloss:   var(--ac-gloss);   /* brilho interno do estilo Volume */
 
   /* ---------- Movimento (prefixo ac-) ---------- */
   --ease-ac-bounce: var(--ac-ease-bounce);

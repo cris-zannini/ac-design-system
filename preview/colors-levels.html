@@ -11,8 +11,9 @@
     aspect-ratio: 1 / 1;
     border-radius: 18px;
     display: flex; flex-direction: column; justify-content: center; align-items: center;
-    background: var(--ac-level-c); color: var(--ac-level-on-c);
-    box-shadow: 0 5px 0 var(--ac-level-dark-c);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--ac-level-c) 88%, white), color-mix(in srgb, var(--ac-level-c) 80%, var(--ac-level-dark-c)));
+    color: var(--ac-level-on-c);
+    box-shadow: var(--ac-gloss), 0 8px 18px -6px color-mix(in srgb, var(--ac-level-dark-c) 45%, transparent);
     position: relative; overflow: hidden;
   }
   .lvl::before {
