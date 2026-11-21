@@ -2,58 +2,70 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="../fonts.css">
 <link rel="stylesheet" href="../colors_and_type.css">
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 <style>
   body { margin: 0; padding: 18px; background: #fff; font-family: var(--ac-font-body); }
-  .grid { display: grid; grid-template-columns: 70px repeat(4, 1fr); gap: 12px 10px; align-items: center; }
-  .col-label { font-family: var(--ac-font-mono); font-size: 10px; color: var(--ac-fg-soft); letter-spacing: 0.06em; text-transform: uppercase; }
-  .row-label { font-family: var(--ac-font-mono); font-size: 10px; color: var(--ac-fg-soft); letter-spacing: 0.06em; text-transform: uppercase; padding-right: 4px; text-align: right; }
-  .b {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 10px 16px; border-radius: 999px; border: 0; cursor: pointer;
-    font-family: var(--ac-font-body); font-weight: 900; font-size: 13px;
-    white-space: nowrap;
-  }
-  .b--icon { padding: 9px; width: 38px; height: 38px; }
-  .b--blue   { background: #0082C2; color: #fff; box-shadow: 0 3px 0 #005A88; }
-  .b--green  { background: #89BD24; color: #fff; box-shadow: 0 3px 0 #5E8418; }
-  .b--ghost  { background: transparent; color: #0082C2; box-shadow: inset 0 0 0 2px #0082C2; }
-  .b--disabled { background: #E5E9EC; color: #9AA7B0; box-shadow: none; cursor: not-allowed; }
-  .b i { width: 15px; height: 15px; }
+  .grid { display: grid; grid-template-columns: 92px repeat(3, auto) 1fr; gap: 16px 12px; align-items: center; justify-items: start; }
+  .lbl { font-family: var(--ac-font-mono); font-size: 10px; color: var(--ac-fg-soft); letter-spacing: 0.06em; text-transform: uppercase; text-align: right; }
+
+  .dark { background: var(--ac-bg-dark); padding: 14px; border-radius: var(--ac-radius-lg); display: flex; gap: 12px; align-items: center; margin-top: 18px; }
+  .dark .lbl { color: var(--ac-fg-on-dark-muted); text-align: left; }
+  .levels { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
 </style>
 </head>
 <body>
   <div class="grid">
+    <div class="lbl">Primário</div>
+    <a class="ac-btn" href="#">Quero conhecer</a>
+    <a class="ac-btn" href="#">Continuar<i data-lucide="arrow-right" stroke-width="2.75"></i></a>
+    <button class="ac-btn ac-btn--icon" aria-label="Adicionar"><i data-lucide="plus" stroke-width="2.75"></i></button>
     <div></div>
-    <div class="col-label">Texto</div>
-    <div class="col-label">Ícone ←</div>
-    <div class="col-label">Ícone →</div>
-    <div class="col-label">Só ícone</div>
 
-    <div class="row-label">Azul</div>
-    <div><button class="b b--blue">Começar</button></div>
-    <div><button class="b b--blue"><i data-lucide="play" stroke-width="2.5"></i>Começar</button></div>
-    <div><button class="b b--blue">Continuar<i data-lucide="arrow-right" stroke-width="2.5"></i></button></div>
-    <div><button class="b b--blue b--icon"><i data-lucide="heart" stroke-width="2.5"></i></button></div>
+    <div class="lbl">Azul</div>
+    <a class="ac-btn ac-btn--blue" href="#">Ver apostilas</a>
+    <a class="ac-btn ac-btn--blue" href="#"><i data-lucide="play" stroke-width="2.75"></i>Assistir</a>
+    <button class="ac-btn ac-btn--blue ac-btn--icon" aria-label="Favoritar"><i data-lucide="heart" stroke-width="2.75"></i></button>
+    <div></div>
 
-    <div class="row-label">Verde</div>
-    <div><button class="b b--green">Confirmar</button></div>
-    <div><button class="b b--green"><i data-lucide="check" stroke-width="2.5"></i>Confirmar</button></div>
-    <div><button class="b b--green">Adicionar<i data-lucide="plus" stroke-width="2.5"></i></button></div>
-    <div><button class="b b--green b--icon"><i data-lucide="check" stroke-width="2.5"></i></button></div>
+    <div class="lbl">Amarelo</div>
+    <a class="ac-btn ac-btn--yellow" href="#">Fazer o quiz</a>
+    <a class="ac-btn ac-btn--yellow" href="#"><i data-lucide="sparkles" stroke-width="2.75"></i>Descobrir</a>
+    <button class="ac-btn ac-btn--yellow ac-btn--icon" aria-label="Estrela"><i data-lucide="star" stroke-width="2.75"></i></button>
+    <div></div>
 
-    <div class="row-label">Ghost</div>
-    <div><button class="b b--ghost">Buscar</button></div>
-    <div><button class="b b--ghost"><i data-lucide="search" stroke-width="2.5"></i>Buscar</button></div>
-    <div><button class="b b--ghost">Saiba mais<i data-lucide="arrow-right" stroke-width="2.5"></i></button></div>
-    <div><button class="b b--ghost b--icon"><i data-lucide="search" stroke-width="2.5"></i></button></div>
+    <div class="lbl">Ghost</div>
+    <a class="ac-btn ac-btn--ghost" href="#">Saiba mais</a>
+    <a class="ac-btn ac-btn--ghost" href="#"><i data-lucide="search" stroke-width="2.75"></i>Buscar</a>
+    <button class="ac-btn ac-btn--ghost ac-btn--icon" aria-label="Buscar"><i data-lucide="search" stroke-width="2.75"></i></button>
+    <div></div>
 
-    <div class="row-label">Disabled</div>
-    <div><button class="b b--disabled" disabled>Começar</button></div>
-    <div><button class="b b--disabled" disabled><i data-lucide="play" stroke-width="2.5"></i>Começar</button></div>
-    <div><button class="b b--disabled" disabled>Continuar<i data-lucide="arrow-right" stroke-width="2.5"></i></button></div>
-    <div><button class="b b--disabled b--icon" disabled><i data-lucide="heart" stroke-width="2.5"></i></button></div>
+    <div class="lbl">Tamanhos</div>
+    <a class="ac-btn ac-btn--sm" href="#">Pequeno</a>
+    <a class="ac-btn" href="#">Médio</a>
+    <a class="ac-btn ac-btn--lg" href="#">Grande</a>
+    <div></div>
+
+    <div class="lbl">Desabilitado</div>
+    <button class="ac-btn" disabled>Indisponível</button>
+    <button class="ac-btn ac-btn--ghost" disabled>Indisponível</button>
+    <div></div><div></div>
+  </div>
+
+  <div class="levels">
+    <a class="ac-btn ac-btn--level ac-level-1" href="#">Nível 1</a>
+    <a class="ac-btn ac-btn--level ac-level-2" href="#">Nível 2</a>
+    <a class="ac-btn ac-btn--level ac-level-3" href="#">Nível 3</a>
+    <a class="ac-btn ac-btn--level ac-level-4" href="#">Nível 4</a>
+    <a class="ac-btn ac-btn--level ac-level-5" href="#">Nível 5</a>
+    <a class="ac-btn ac-btn--level ac-level-abc" href="#">ABC</a>
+  </div>
+
+  <div class="dark">
+    <span class="lbl">Sobre fundo escuro</span>
+    <a class="ac-btn" href="#">Quero conhecer</a>
+    <a class="ac-btn ac-btn--ghost-light" href="#">Saiba mais</a>
   </div>
   <script>lucide.createIcons();</script>
 </body>

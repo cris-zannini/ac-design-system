@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../fonts.css">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 14px; }
+  .lbl { width: 84px; font-family: var(--ac-font-mono); font-size: 10px; color: var(--ac-fg-soft); text-transform: uppercase; letter-spacing: .06em; }
+  .dark { background: var(--ac-bg-dark); padding: 12px 14px; border-radius: var(--ac-radius-lg); }
+  .dark .lbl { color: var(--ac-fg-on-dark-muted); }
+</style>
+</head>
+<body>
+  <div class="row"><span class="lbl">Sólidos</span>
+    <span class="ac-badge">Padrão</span>
+    <span class="ac-badge ac-badge--blue">Novo</span>
+    <span class="ac-badge ac-badge--yellow">Mais vendido</span>
+    <span class="ac-badge ac-badge--green">Grátis</span>
+    <span class="ac-badge ac-badge--red">-40%</span>
+    <span class="ac-badge ac-badge--neutral">Em breve</span>
+    <span class="ac-badge ac-badge--outline">Digital</span>
+  </div>
+  <div class="row"><span class="lbl">Níveis</span>
+    <span class="ac-badge ac-badge--level ac-level-1">Nv1 · 3–4 anos</span>
+    <span class="ac-badge ac-badge--level ac-level-2">Nv2 · 4–5 anos</span>
+    <span class="ac-badge ac-badge--level ac-level-3">Nv3 · 5–6 anos</span>
+    <span class="ac-badge ac-badge--level ac-level-4">Nv4 · 6–7 anos</span>
+    <span class="ac-badge ac-badge--level ac-level-5">Nv5 · 7+ anos</span>
+  </div>
+  <div class="row"><span class="lbl">Feedback</span>
+    <span class="ac-badge ac-badge--success">Concluído</span>
+    <span class="ac-badge ac-badge--error">Esgotado</span>
+    <span class="ac-badge ac-badge--warning">Últimas unidades</span>
+    <span class="ac-badge ac-badge--info">Atualizado</span>
+  </div>
+  <div class="row dark"><span class="lbl">On-dark</span>
+    <span class="ac-badge ac-badge--on-dark">Alfabetização</span>
+    <span class="ac-badge ac-badge--on-dark">Coordenação motora</span>
+    <span class="ac-badge ac-badge--yellow">Destaque</span>
+  </div>
+</body>
+</html>

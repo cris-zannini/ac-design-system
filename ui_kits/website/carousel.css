@@ -1,0 +1,78 @@
+/* carousel.css — estilos do .ac-carousel (comportamento em carousel.js) */
+
+.ac-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+.ac-carousel__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  border-radius: var(--ac-radius-lg);
+}
+.ac-carousel__track::-webkit-scrollbar { display: none; }
+.ac-carousel__track:focus-visible { outline: 3px solid var(--ac-focus); outline-offset: 3px; }
+.ac-carousel__track > * {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.ac-carousel__arrow {
+  display: none;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ac-radius-pill);
+  background: rgba(14, 42, 61, 0.55);
+  color: var(--ac-white);
+  cursor: pointer;
+  place-items: center;
+  transition: background-color var(--ac-dur-base) var(--ac-ease-out);
+}
+.ac-carousel__arrow:hover { background: rgba(14, 42, 61, 0.8); }
+.ac-carousel__arrow:focus-visible { outline: 3px solid var(--ac-white); outline-offset: 2px; }
+.ac-carousel__arrow--prev { left: 12px; }
+.ac-carousel__arrow--next { right: 12px; }
+@media (min-width: 640px) and (hover: hover) {
+  .ac-carousel__arrow { display: grid; }
+}
+
+.ac-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--ac-space-2);
+  margin-top: var(--ac-space-4);
+}
+.ac-carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ac-radius-pill);
+  background: var(--ac-neutral-500);
+  cursor: pointer;
+  transition: width var(--ac-dur-base) var(--ac-ease-out),
+              background-color var(--ac-dur-base) var(--ac-ease-out);
+}
+.ac-carousel__dot[aria-current="true"] { width: 24px; background: var(--ac-blue-600); }
+.ac-carousel__dot:focus-visible { outline: 3px solid var(--ac-focus); outline-offset: 2px; }
+
+/* Sobre fundo escuro (seções bg-dark) */
+.ac-carousel--on-dark .ac-carousel__dot { background: rgba(255, 255, 255, 0.4); }
+.ac-carousel--on-dark .ac-carousel__dot[aria-current="true"] { background: var(--ac-white); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-carousel__track { scroll-behavior: auto; }
+}

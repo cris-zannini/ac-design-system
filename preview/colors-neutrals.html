@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../fonts.css">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); color: var(--ac-fg); }
+  .label { font-weight: 900; font-size: 12px; letter-spacing: 0.1em; color: var(--ac-fg-link); text-transform: uppercase; margin-bottom: 6px; }
+  .scale { display: grid; grid-template-columns: repeat(11, 1fr); gap: 6px; margin-bottom: 18px; }
+  .chip { aspect-ratio: 1; border-radius: 10px; position: relative; box-shadow: inset 0 0 0 1px rgba(0,0,0,.06); }
+  .chip span { position: absolute; bottom: 5px; left: 6px; font-size: 10px; font-family: var(--ac-font-mono); font-weight: 700; }
+  .l span { color: var(--ac-fg); } .d span { color: #fff; }
+  .text { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .t { padding: 12px 14px; border: 2px solid var(--ac-border); border-radius: var(--ac-radius-md); }
+  .t b { display: block; font-size: 16px; font-weight: 800; }
+  .t code { font-family: var(--ac-font-mono); font-size: 11px; color: var(--ac-fg-soft); }
+</style>
+</head>
+<body>
+  <div class="label">Neutros · superfícies, bordas, desabilitado</div>
+  <div class="scale">
+    <div class="chip l" style="background:var(--ac-neutral-50)"><span>50</span></div>
+    <div class="chip l" style="background:var(--ac-neutral-100)"><span>100</span></div>
+    <div class="chip l" style="background:var(--ac-neutral-200)"><span>200</span></div>
+    <div class="chip l" style="background:var(--ac-neutral-300)"><span>300</span></div>
+    <div class="chip l" style="background:var(--ac-neutral-400)"><span>400</span></div>
+    <div class="chip l" style="background:var(--ac-neutral-500)"><span>500</span></div>
+    <div class="chip d" style="background:var(--ac-neutral-600)"><span>600</span></div>
+    <div class="chip d" style="background:var(--ac-neutral-700)"><span>700</span></div>
+    <div class="chip d" style="background:var(--ac-neutral-800)"><span>800</span></div>
+    <div class="chip d" style="background:var(--ac-neutral-900)"><span>900</span></div>
+    <div class="chip d" style="background:var(--ac-neutral-950)"><span>950</span></div>
+  </div>
+  <div class="label">Texto · navy da marca, não cinza</div>
+  <div class="text">
+    <div class="t"><b style="color:var(--ac-fg)">Corpo</b><code>--ac-fg · 14.8:1</code></div>
+    <div class="t"><b style="color:var(--ac-fg-muted)">Secundário</b><code>--ac-fg-muted · 5.75:1</code></div>
+    <div class="t"><b style="color:var(--ac-fg-soft)">Meta, legenda</b><code>--ac-fg-soft · 4.52:1</code></div>
+  </div>
+</body>
+</html>
