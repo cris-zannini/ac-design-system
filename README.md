@@ -28,7 +28,7 @@ This design system captures the brand voice, visual foundations, and component v
 ├── SKILL.md                   ← skill manifest (Agent Skills compatible)
 ├── colors_and_type.css        ← CSS variables: palette + type scale
 ├── assets/                    ← logos, brand PDF
-├── fonts/                     ← Nunito (5 weights) + Bangers (Blambot substitute)
+├── fonts/                     ← Nunito (5 weights)
 ├── preview/                   ← cards rendered in the Design System tab
 └── ui_kits/
     └── website/               ← marketing-site UI kit (recreation)
@@ -95,11 +95,14 @@ The palette is **highly saturated, RGB-vibrant, childhood-coded**. Pastels, desa
 
 | Token | Hex | Role |
 |---|---|---|
-| `--ac-blue` | `#0076B6` | Primary. Carries the brand — letterforms, headings, base elements. |
-| `--ac-blue-light` | `#0096C7` | Secondary. Hovers, accents, link underlines. |
-| `--ac-green-splash` | `#8BC34A` | Splash/blob backgrounds. Energy, "yes!" states. |
-| `--ac-red` | `#E53935` | Pedagogical red — apple, attention, level Nv4. |
+| `--ac-blue` | `#0082C2` | Primary. Carries the brand — letterforms, headings, base elements. |
+| `--ac-green-splash` | `#89BD24` | Splash/blob backgrounds. Energy, "yes!" states. |
 | `--ac-yellow` | `#FFCA28` | Lúdico — highlights, level coding, sun-warmth. |
+| `--ac-lilac` | `#BA8DC0` | Nv1 highlight color. |
+| `--ac-teal` | `#46B9B0` | Nv2 highlight color / Secondary hover. |
+| `--ac-orange` | `#F08055` | Nv3 highlight color. |
+| `--ac-red` | `#D1104A` | Vermelho Principal / Pedagogical red / Nv4 highlight. |
+| `--ac-forest` | `#385725` | Deep green accent. |
 | `--ac-white` | `#FFFFFF` | The infinite background. |
 
 **Recommended proportion** (per Manual §07): 55% Blue · 18% Blue Light · 12% Green · 8% Red · 7% Yellow.
@@ -112,7 +115,7 @@ Per-level splash colors used on apostila covers:
 - Nv5/ABC → verde-claro (light green)
 
 ### Type
-- **Display / logotype** — **Blambot FXPro Heavy BB** (`fonts/Blambot_FXPro_BB_W00_Heavy.ttf`). The same face used for the logotype — reserve for headlines, taglines, and short display moments. Never use for body copy.
+- **Display / logotype** — Use a bold web font or Nunito Black for display moments. Never use for body copy.
 - **UI / body** — **Nunito**, full family in `fonts/`: ExtraLight 200, Light 300, Regular 400, Medium 500, SemiBold 600, Bold 700, ExtraBold 800, Black 900 (each with matching italics). Official across web, app, and print.
 
 ### Backgrounds

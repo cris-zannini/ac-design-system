@@ -40,5 +40,5 @@ Then produce static HTML artifacts (or production code, if asked), copying asset
 
 ## Fonts shipped in this skill
 
-- `fonts/Blambot_FXPro_BB_W00_Heavy.ttf` — display face (logotype + display headings).
+
 - `fonts/Nunito-*.ttf` — full Nunito family (200–900 + italics) for body and UI.
