@@ -11,9 +11,9 @@ Aprenda em Casa is a Brazilian children's-education brand with the tagline **"Br
 ## How to use this skill
 
 1. **Read `README.md`** — it has the full visual + voice + content rules.
-2. **Inspect `colors_and_type.css`** — copy these tokens into any new artifact.
+2. **Inspect `colors_and_type.css`** — tokens + ready components (`.ac-btn`, `.ac-badge`, `.ac-card`, `.ac-alert`, `.ac-level-N`). Link it with `fonts.css`; in Tailwind v4 projects import `tailwind.css` instead.
 3. **Copy logos and assets** out of `assets/` rather than re-drawing them. Never invent SVG illustrations.
-4. **Lift components** from `ui_kits/website/` (Header, Hero, LevelGrid, FeatureRow, Testimonial, CTABand, Footer) when building new pages.
+4. **Lift components** from `ui_kits/website/components.html` (static HTML + Tailwind equivalents). The JSX files there are a visual reference for page sections, not production code.
 5. **Stay in Brazilian Portuguese, first-person plural**, with the warm-teacher tone documented under "Content fundamentals."
 
 ## When invoked without context
@@ -33,6 +33,9 @@ Then produce static HTML artifacts (or production code, if asked), copying asset
 - **Never** depict sad/anxious children or non-educational settings.
 - **Always** allow generous white space (the "X" of clear area around the logo).
 - **Always** prefer the simplified/horizontal logo at small sizes (< 120 px wide).
+- **Primary CTA is green with navy text.** Never white text on green splash, teal, lilac or orange. Small blue text and blue buttons use `--ac-blue-600`, not the brand blue.
+- **Text is navy** (`--ac-fg`, `--ac-fg-muted`, `--ac-fg-soft`), never gray. Grays (`--ac-neutral-*`) are for surfaces and borders.
+- After changing any color, run `python3 scripts/check_contrast.py`.
 
 ## Substitutions to flag
 
@@ -40,5 +43,4 @@ Then produce static HTML artifacts (or production code, if asked), copying asset
 
 ## Fonts shipped in this skill
 
-
-- `fonts/Nunito-*.ttf` — full Nunito family (200–900 + italics) for body and UI.
+- `fonts/Nunito-*.ttf` — full Nunito family (200–900 + italics), declared in `fonts.css`. It is the only typeface: display moments use Nunito Black (900).
