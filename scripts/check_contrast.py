@@ -82,8 +82,22 @@ PAIRS = [
 
 # Pares com transparência: (fundo base, overlay rgba do fundo, texto rgba, mínimo, descrição)
 ALPHA_PAIRS = [
-    ("--ac-bg-dark", (255, 255, 255, 0.14), (255, 255, 255, 1.0), AA, "badge on-dark"),
+    ("--ac-bg-dark", (255, 255, 255, 0.20), (255, 255, 255, 1.0), AA, "badge/tag on-dark (topo do gradiente)"),
     ("--ac-bg-dark", (0, 0, 0, 0.0), (255, 255, 255, 0.82), AA, "texto on-dark-muted"),
+]
+
+# Estilo Volume: o texto fica sobre um gradiente, então as DUAS pontas
+# precisam passar. Aceita hex, var() e color-mix(in srgb, A P%, B).
+LEVEL_TOP = "color-mix(in srgb, var(--ac-level-{n}) 88%, white)"
+LEVEL_BOTTOM = "color-mix(in srgb, var(--ac-level-{n}) 80%, var(--ac-level-{n}-dark))"
+GRADIENT_PAIRS = [
+    ("var(--ac-green-400)", "var(--ac-green-600)", "--ac-on-green", AA, "botão/badge verde"),
+    ("var(--ac-blue-top)", "var(--ac-blue-700)", "--ac-on-blue", AA, "botão/badge/tag azul, nível ABC"),
+    ("var(--ac-yellow-300)", "var(--ac-yellow-600)", "--ac-on-yellow", AA, "botão/badge amarelo"),
+    ("var(--ac-red-500)", "var(--ac-red-600)", "--ac-on-red", AA, "badge vermelho"),
+] + [
+    (LEVEL_TOP.format(n=n), LEVEL_BOTTOM.format(n=n), f"--ac-level-{n}-on", AA, f"botão/badge nível {n}")
+    for n in range(1, 6)
 ]
 
 
@@ -108,6 +122,20 @@ def hex_rgb(value):
     if not re.fullmatch(r"[0-9a-fA-F]{6}", h):
         raise ValueError(f"cor não suportada: {value}")
     return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+def color(expr, tokens):
+    expr = expr.strip()
+    if expr == "white":
+        return (255, 255, 255)
+    m = re.fullmatch(r"var\((--[\w-]+)\)", expr)
+    if m:
+        return color(tokens[m.group(1)], tokens)
+    m = re.fullmatch(r"color-mix\(in srgb,\s*(.+?)\s+(\d+(?:\.\d+)?)%,\s*(.+)\)", expr)
+    if m:
+        a, t, b = color(m.group(1), tokens), float(m.group(2)) / 100, color(m.group(3), tokens)
+        return tuple(round(x * t + y * (1 - t)) for x, y in zip(a, b))
+    return hex_rgb(expr)
 
 
 def blend(base, rgba):
@@ -139,6 +167,10 @@ def main():
         base = blend(hex_rgb(resolve(bg, tokens)), overlay)
         r = ratio(base, blend(base, text))
         rows.append((r >= minimum, r, minimum, label, f"rgba sobre {bg}"))
+    for top, bottom, fg, minimum, label in GRADIENT_PAIRS:
+        text = color(f"var({fg})", tokens)
+        r = min(ratio(color(top, tokens), text), ratio(color(bottom, tokens), text))
+        rows.append((r >= minimum, r, minimum, label, f"{fg} sobre gradiente (pior ponta)"))
     for ok, r, minimum, label, detail in rows:
         failures += not ok
         print(f"{'ok  ' if ok else 'FAIL'} {r:5.2f} (mín {minimum})  {label:<38} {detail}")

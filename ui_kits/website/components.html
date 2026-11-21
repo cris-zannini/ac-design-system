@@ -36,7 +36,7 @@
   <!-- ============================== BUTTON ============================== -->
   <section>
     <h2 class="ac-h2">Botão</h2>
-    <p>O CTA padrão é <strong>verde com texto navy</strong>. Branco sobre o verde splash dá 2,24:1 e reprova no WCAG.</p>
+    <p>Estilo <strong>Volume</strong> (v1.2): gradiente leve de cima para baixo, brilho no topo e sombra suave com blur. O CTA padrão é <strong>verde com texto navy</strong>. Branco sobre o verde splash dá 2,24:1 e reprova no WCAG.</p>
 
     <h3>Variantes</h3>
     <div class="demo">
@@ -50,11 +50,13 @@
 &lt;a class="ac-btn ac-btn--blue" href="…"&gt;…&lt;/a&gt;   &lt;!-- --yellow · --ghost · --ghost-light · --level --&gt;
 &lt;a class="ac-btn ac-btn--sm"&gt;…&lt;/a&gt;              &lt;!-- --lg · --block · --icon --&gt;
 
-&lt;!-- Equivalente Tailwind (primário) --&gt;
-&lt;a class="inline-flex items-center justify-center gap-2 rounded-ac-pill bg-brand-green px-8 py-4
+&lt;!-- Equivalente Tailwind (primário) — prefira .ac-btn: o estilo Volume tem muitas camadas --&gt;
+&lt;a class="inline-flex items-center justify-center gap-2 rounded-ac-pill px-8 py-4
+          bg-linear-to-b from-brand-green-400 to-brand-green-600
           text-ac-ui font-black uppercase leading-none tracking-ac-wide text-on-green
-          shadow-[0_4px_0_0_var(--ac-green-800)] transition ease-ac-bounce
-          hover:-translate-y-0.5 hover:bg-brand-green-600 active:translate-y-0.5"&gt;…&lt;/a&gt;</pre>
+          shadow-[inset_0_1px_0_rgb(255_255_255/.55),0_8px_18px_-6px_rgb(101_142_26/.45)]
+          transition ease-ac-bounce hover:-translate-y-0.5 hover:brightness-105
+          active:translate-y-px active:scale-[.98]"&gt;…&lt;/a&gt;</pre>
 
     <h3>Por nível</h3>
     <div class="demo">
@@ -68,7 +70,8 @@
 &lt;main class="ac-level-3"&gt; … &lt;a class="ac-btn ac-btn--level"&gt;Comprar Nível 3&lt;/a&gt; … &lt;/main&gt;
 
 &lt;!-- Tailwind --&gt;
-&lt;a class="… bg-level-3 text-level-3-on shadow-[0_4px_0_0_var(--ac-level-3-dark)]"&gt;…&lt;/a&gt;</pre>
+&lt;a class="ac-level-3 … bg-linear-to-b from-(--ac-level-top) to-(--ac-level-bottom) text-level-3-on
+          shadow-[inset_0_1px_0_rgb(255_255_255/.55),0_8px_18px_-6px_var(--ac-level-3-dark)]"&gt;…&lt;/a&gt;</pre>
 
     <h3>Sobre fundo escuro · com ícone · inline</h3>
     <div class="demo demo--dark">
@@ -161,7 +164,7 @@ Educação Infantil → shapes · Alfabetização → book-open · Atividades em
 &lt;/div&gt;
 
 &lt;!-- Tailwind --&gt;
-&lt;div class="flex flex-col gap-3 rounded-ac-lg bg-surface p-6 shadow-ac-card"&gt;…&lt;/div&gt;</pre>
+&lt;div class="flex flex-col gap-3 rounded-ac-lg bg-linear-to-b from-surface from-55% to-(--ac-surface-bottom) p-6 shadow-ac-card"&gt;…&lt;/div&gt;</pre>
   </section>
 
   <!-- ============================== ALERT ============================== -->
@@ -175,7 +178,7 @@ Educação Infantil → shapes · Alfabetização → book-open · Atividades em
 &lt;!-- quiz: #4CAF50 → success · #E53935 → error --&gt;
 
 &lt;!-- Tailwind --&gt;
-&lt;div class="rounded-ac-md border-2 border-success-border bg-success-bg px-4 py-3 font-bold text-success-fg"&gt;…&lt;/div&gt;</pre>
+&lt;div class="rounded-ac-md border-[1.5px] border-success-border bg-linear-to-b from-success-bg/50 to-success-bg px-4 py-3 font-bold text-success-fg"&gt;…&lt;/div&gt;</pre>
   </section>
 
   <!-- ============================== CAROUSEL ============================== -->

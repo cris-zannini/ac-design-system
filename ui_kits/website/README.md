@@ -10,7 +10,7 @@ Two things live here:
 
 ## Patterns
 
-- **Buttons** — green pill by default, navy text, 4px "3D" bottom edge; hover rises, press sinks.
-- **Cards** — 16 px radius, blue-tinted card shadow; level cards carry a 6px top stripe in the level color.
+- **Buttons** — green pill by default, navy text, Volume style (light gradient, inner gloss, soft tinted shadow); hover rises, press sinks with an inner shadow.
+- **Cards** — 16 px radius, white → faint blue gradient with a layered soft shadow; level cards carry a 6px top stripe with the level gradient.
 - **Display copy** — Nunito Black, uppercase, slight negative tracking.
 - **Splash** — `border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%` for organic blobs (`.ac-splash`).

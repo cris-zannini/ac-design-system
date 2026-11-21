@@ -118,7 +118,7 @@ The palette is **highly saturated, RGB-vibrant, childhood-coded**. Pastels, desa
 
 **Feedback.** `success` (green-800), `error` (magenta), `warning` (yellow), `info` (blue-600), each with `-on`, `-bg`, `-border` and `-fg`.
 
-**Levels.** Each apostila level has `base`, `-dark` (hover, 3D edge, colored large text), `-soft` (tinted surface) and `-on` (text color on the base):
+**Levels.** Each apostila level has `base`, `-dark` (shadow tint, end of the level gradient, colored large text), `-soft` (tinted surface) and `-on` (text color on the base):
 
 | Level | Base | Dark | Text on base |
 |---|---|---|---|
@@ -178,31 +178,40 @@ Run `python3 scripts/check_contrast.py` after changing any color — every decla
 h1/h2/h3 and display use `clamp()` so they scale down on mobile.
 
 ### Buttons
-The **primary CTA is green** (`.ac-btn`): green splash, navy text, uppercase 15px Black, pill, 4px "3D" bottom edge, rises on hover. Variants: `--blue`, `--yellow`, `--ghost`, `--ghost-light` (on dark sections), `--level`. Sizes `--sm` / `--lg`; modifiers `--block`, `--icon`, `--inline`. See `preview/components-buttons.html`.
+The **primary CTA is green** (`.ac-btn`): green splash, navy text, uppercase 15px Black, pill, **Volume style** (light top-to-bottom gradient, inner gloss, soft blurred shadow tinted with the button color); rises on hover, sinks with an inner shadow on press. Variants: `--blue`, `--yellow`, `--ghost`, `--ghost-light` (on dark sections), `--level`. Sizes `--sm` / `--lg`; modifiers `--block`, `--icon`, `--inline`. See `preview/components-buttons.html`.
 
 ### Backgrounds
 - **Default ground:** infinite white. The Manual is explicit: white background, brand color punctuation.
 - **Splash motif:** organic green-paint blobs (the brand's signature). Use as a hero device, behind the logo, or as a level-coded patch on covers.
-- **Never** use full-bleed photography, dark mode, gradients-as-background, or pastels.
+- **Never** use full-bleed photography, dark mode, or pastels. Gradients are only the subtle **component** gradients of the Volume style — never as section/page backgrounds.
 
 ### Borders & corners
 - **Generous rounding.** Radii: `sm` 8 · `md` 12 · `lg` 16 (cards) · `xl` 24 · `2xl` 32 · `pill` 999 (buttons, badges).
 - **Bold strokes.** When used, borders are 3–4 px solid in primary blue or white-with-shadow (cartoon offset).
-- **Cartoon shadow:** elements often carry a flat **white outline + soft drop shadow** echoing the logo. Never use realistic/soft shadows alone.
+- **Sticker outline:** cards can carry a **white outline + soft drop shadow** echoing the logo (`.ac-card--sticker`).
 
-### Shadows
-Two shadow systems coexist:
+### Volume style (v1.2) — gradients & shadows
+Since v1.2 every component uses the **Volume** style, on the site and in the app. The previous flat style (solid 4px "3D" bottom edge) is preserved in git as tag `v1.1-flat`.
+
+- **Gradient:** always top (lighter) → bottom (darker), within the same hue: e.g. green-400 → green-600, `--ac-blue-top` → blue-700, yellow-300 → yellow-600. Level components use `--ac-level-top` → `--ac-level-bottom`, set by `.ac-level-N`.
+- **Contrast:** text sits on a gradient, so **both ends** must pass WCAG AA. `scripts/check_contrast.py` checks every gradient (worst end).
+- **Gloss:** `--ac-gloss` — 1px light line at the top + faint inner shade at the bottom.
+- **Shadows:** blurred, layered, always blue-tinted (never pure black). Buttons use their own color as the shadow tint.
 
 | Token | Use |
 |---|---|
-| `--ac-shadow-sticker` | A flat white stroke + tight dark drop. Mimics the logo's sticker effect. |
-| `--ac-shadow-card` | A soft `0 8px 24px rgba(0,118,182,.18)` blue-tinted lift for content cards. |
+| `--ac-shadow-sm` | Chips, tags, ghost button — barely lifted. |
+| `--ac-shadow-card` | Default card surface (3 layers, soft blur). |
+| `--ac-shadow-pop` | Hover of interactive cards. |
+| `--ac-shadow-sticker` | White 3px outline + card shadow (logo sticker effect). |
+| `--ac-shadow-button` | Reference blue button shadow (gloss + tinted blur). |
+| `--ac-gloss` | Inner gloss for any raised surface. |
 
 ### Animation
 - **Bounce, hover-rise, tilt-back-and-forth.** Easing should feel like a kid skipping — `cubic-bezier(.34, 1.56, .64, 1)` or a gentle spring.
 - **Fades** are allowed but should never feel slow or moody.
 - **Hover** on interactive elements: rise 2–4 px, scale to 1.02, optional 1–2 deg wiggle.
-- **Press** on buttons: scale to 0.96, deepen color one step.
+- **Press** on buttons: sink 1px, scale to 0.98, shadow turns inward (in the app this is the main feedback state).
 
 ### Layout rules
 - **Big headings, generous breathing.** White space is part of the design — the Manual mandates an "X" of clear space around the logo equal to the height of the "A" in the letterform.
@@ -216,7 +225,7 @@ Two shadow systems coexist:
 - No photo-realism. No moody/dark filters. No grain.
 
 ### Transparency & blur
-- Avoid blurs. The brand reads as crisp, sticker-flat.
+- Shadows are soft and blurred (Volume style), but **content stays crisp**: no blurred images or text, no glassmorphism panels. `backdrop-filter` only on small overlay controls (e.g. carousel arrows).
 - Transparency is fine on the green splash motif (60–80% on white) and for soft-overlay color accents — never on text.
 
 ---
