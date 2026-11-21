@@ -1,0 +1,232 @@
+/* ============================================================
+   APRENDA EM CASA — ponte para Tailwind CSS v4
+   tailwind.css
+
+   Uso (no CSS de entrada do projeto):
+
+     @import "tailwindcss";
+     @import "<caminho>/fonts.css";      ← opcional, se não carregar a Nunito de outro jeito
+     @import "<caminho>/tailwind.css";
+
+   Regras de nomenclatura:
+   - Cores usam os nomes que o site já usa (brand-*, level-*, body,
+     muted, dark, bg-warm…), para a migração ser troca de valor,
+     não de classe. Geram bg-*, text-*, border-*, ring-*, fill-*…
+   - Tamanho de texto, entrelinha, tracking, raio, sombra e easing
+     levam o prefixo "ac-" (text-ac-ui, rounded-ac-lg, shadow-ac-card)
+     para NÃO sobrescrever os padrões do Tailwind (text-2xl,
+     rounded-2xl, shadow-md…), que o site usa amplamente.
+   - Exceção consciente: a escala neutral-* substitui a neutral
+     padrão do Tailwind (o site não a usa).
+   - Espaçamento: não mapeado — a base 4px do DS é a mesma do
+     --spacing do Tailwind (ac-space-5 = 24px = p-6).
+
+   `inline` faz os utilitários referenciarem var(--ac-*) direto, então
+   trocar um token em :root muda tudo sem rebuild.
+   ============================================================ */
+
+@import "./colors_and_type.css";
+
+@theme inline {
+  /* ---------- Fontes ---------- */
+  --font-sans:    var(--ac-font-body);
+  --font-display: var(--ac-font-display);
+  --font-mono:    var(--ac-font-mono);
+
+  /* ---------- Marca ---------- */
+  --color-brand-blue:        var(--ac-blue);
+  --color-brand-blue-light:  var(--ac-blue-light);
+  --color-brand-green:       var(--ac-green-splash);
+  --color-brand-yellow:      var(--ac-yellow);
+  --color-brand-red:         var(--ac-magenta);
+  --color-brand-lilac:       var(--ac-lilac);
+  --color-brand-teal:        var(--ac-teal);
+  --color-brand-orange:      var(--ac-orange);
+  --color-brand-forest:      var(--ac-forest);
+  --color-brand-forest-dark: var(--ac-forest-dark);
+  --color-brand-navy:        var(--ac-navy);
+
+  /* ---------- Escalas ---------- */
+  --color-brand-blue-50:  var(--ac-blue-50);
+  --color-brand-blue-100: var(--ac-blue-100);
+  --color-brand-blue-200: var(--ac-blue-200);
+  --color-brand-blue-300: var(--ac-blue-300);
+  --color-brand-blue-400: var(--ac-blue-400);
+  --color-brand-blue-500: var(--ac-blue-500);
+  --color-brand-blue-600: var(--ac-blue-600);
+  --color-brand-blue-700: var(--ac-blue-700);
+  --color-brand-blue-800: var(--ac-blue-800);
+  --color-brand-blue-900: var(--ac-blue-900);
+
+  --color-brand-green-50:  var(--ac-green-50);
+  --color-brand-green-100: var(--ac-green-100);
+  --color-brand-green-200: var(--ac-green-200);
+  --color-brand-green-300: var(--ac-green-300);
+  --color-brand-green-400: var(--ac-green-400);
+  --color-brand-green-500: var(--ac-green-500);
+  --color-brand-green-600: var(--ac-green-600);
+  --color-brand-green-700: var(--ac-green-700);
+  --color-brand-green-800: var(--ac-green-800);
+  --color-brand-green-900: var(--ac-green-900);
+  --color-brand-green-950: var(--ac-green-950);
+
+  --color-brand-red-50:  var(--ac-red-50);
+  --color-brand-red-100: var(--ac-red-100);
+  --color-brand-red-200: var(--ac-red-200);
+  --color-brand-red-300: var(--ac-red-300);
+  --color-brand-red-400: var(--ac-red-400);
+  --color-brand-red-500: var(--ac-red-500);
+  --color-brand-red-600: var(--ac-red-600);
+  --color-brand-red-700: var(--ac-red-700);
+  --color-brand-red-800: var(--ac-red-800);
+  --color-brand-red-900: var(--ac-red-900);
+
+  --color-brand-yellow-50:  var(--ac-yellow-50);
+  --color-brand-yellow-100: var(--ac-yellow-100);
+  --color-brand-yellow-200: var(--ac-yellow-200);
+  --color-brand-yellow-300: var(--ac-yellow-300);
+  --color-brand-yellow-400: var(--ac-yellow-400);
+  --color-brand-yellow-500: var(--ac-yellow-500);
+  --color-brand-yellow-600: var(--ac-yellow-600);
+  --color-brand-yellow-700: var(--ac-yellow-700);
+  --color-brand-yellow-800: var(--ac-yellow-800);
+  --color-brand-yellow-900: var(--ac-yellow-900);
+
+  --color-neutral-0:   var(--ac-neutral-0);
+  --color-neutral-50:  var(--ac-neutral-50);
+  --color-neutral-100: var(--ac-neutral-100);
+  --color-neutral-200: var(--ac-neutral-200);
+  --color-neutral-300: var(--ac-neutral-300);
+  --color-neutral-400: var(--ac-neutral-400);
+  --color-neutral-500: var(--ac-neutral-500);
+  --color-neutral-600: var(--ac-neutral-600);
+  --color-neutral-700: var(--ac-neutral-700);
+  --color-neutral-800: var(--ac-neutral-800);
+  --color-neutral-900: var(--ac-neutral-900);
+  --color-neutral-950: var(--ac-neutral-950);
+
+  /* ---------- Níveis ---------- */
+  --color-level-1:        var(--ac-level-1);
+  --color-level-1-dark:   var(--ac-level-1-dark);
+  --color-level-1-soft:   var(--ac-level-1-soft);
+  --color-level-1-on:     var(--ac-level-1-on);
+  --color-level-2:        var(--ac-level-2);
+  --color-level-2-dark:   var(--ac-level-2-dark);
+  --color-level-2-soft:   var(--ac-level-2-soft);
+  --color-level-2-on:     var(--ac-level-2-on);
+  --color-level-3:        var(--ac-level-3);
+  --color-level-3-dark:   var(--ac-level-3-dark);
+  --color-level-3-soft:   var(--ac-level-3-soft);
+  --color-level-3-on:     var(--ac-level-3-on);
+  --color-level-4:        var(--ac-level-4);
+  --color-level-4-dark:   var(--ac-level-4-dark);
+  --color-level-4-soft:   var(--ac-level-4-soft);
+  --color-level-4-on:     var(--ac-level-4-on);
+  --color-level-5:        var(--ac-level-5);
+  --color-level-5-dark:   var(--ac-level-5-dark);
+  --color-level-5-soft:   var(--ac-level-5-soft);
+  --color-level-5-on:     var(--ac-level-5-on);
+  --color-level-abc:      var(--ac-level-abc);
+  --color-level-abc-dark: var(--ac-level-abc-dark);
+  --color-level-abc-soft: var(--ac-level-abc-soft);
+  --color-level-abc-on:   var(--ac-level-abc-on);
+  /* nível corrente (herdado de .ac-level-*) */
+  --color-level:          var(--ac-level);
+  --color-level-dark:     var(--ac-level-dark);
+  --color-level-soft:     var(--ac-level-soft);
+  --color-level-on:       var(--ac-level-on);
+
+  /* ---------- Texto ---------- */
+  --color-body:          var(--ac-fg);
+  --color-muted:         var(--ac-fg-muted);
+  --color-soft:          var(--ac-fg-soft);
+  --color-disabled:      var(--ac-fg-disabled);
+  --color-link:          var(--ac-fg-link);
+  --color-on-dark:       var(--ac-fg-on-dark);
+  --color-on-dark-muted: var(--ac-fg-on-dark-muted);
+  --color-on-blue:       var(--ac-on-blue);
+  --color-on-green:      var(--ac-on-green);
+  --color-on-yellow:     var(--ac-on-yellow);
+  --color-on-red:        var(--ac-on-red);
+
+  /* ---------- Superfícies e bordas ---------- */
+  --color-bg-page:        var(--ac-bg);
+  --color-bg-soft:        var(--ac-bg-soft);
+  --color-bg-tint:        var(--ac-bg-tint);
+  --color-bg-warm:        var(--ac-bg-warm);
+  --color-dark:           var(--ac-bg-dark);
+  --color-dark-mid:       var(--ac-bg-dark);   /* compat. com o site */
+  --color-surface:        var(--ac-surface);
+  --color-surface-subtle: var(--ac-surface-subtle);
+  --color-surface-muted:  var(--ac-surface-muted);
+  --color-border:         var(--ac-border);
+  --color-border-strong:  var(--ac-border-strong);
+  --color-border-brand:   var(--ac-border-brand);
+  --color-focus:          var(--ac-focus);
+
+  /* ---------- Feedback ---------- */
+  --color-success:        var(--ac-success);
+  --color-success-on:     var(--ac-success-on);
+  --color-success-bg:     var(--ac-success-bg);
+  --color-success-border: var(--ac-success-border);
+  --color-success-fg:     var(--ac-success-fg);
+  --color-error:          var(--ac-error);
+  --color-error-on:       var(--ac-error-on);
+  --color-error-bg:       var(--ac-error-bg);
+  --color-error-border:   var(--ac-error-border);
+  --color-error-fg:       var(--ac-error-fg);
+  --color-warning:        var(--ac-warning);
+  --color-warning-on:     var(--ac-warning-on);
+  --color-warning-bg:     var(--ac-warning-bg);
+  --color-warning-border: var(--ac-warning-border);
+  --color-warning-fg:     var(--ac-warning-fg);
+  --color-info:           var(--ac-info);
+  --color-info-on:        var(--ac-info-on);
+  --color-info-bg:        var(--ac-info-bg);
+  --color-info-border:    var(--ac-info-border);
+  --color-info-fg:        var(--ac-info-fg);
+
+  /* ---------- Tipografia (prefixo ac-) ---------- */
+  --text-ac-micro:   var(--ac-text-micro);
+  --text-ac-caption: var(--ac-text-caption);
+  --text-ac-meta:    var(--ac-text-meta);
+  --text-ac-sm:      var(--ac-text-sm);
+  --text-ac-ui:      var(--ac-text-ui);
+  --text-ac-base:    var(--ac-text-base);
+  --text-ac-md:      var(--ac-text-md);
+  --text-ac-lg:      var(--ac-text-lg);
+  --text-ac-xl:      var(--ac-text-xl);
+  --text-ac-2xl:     var(--ac-text-2xl);
+  --text-ac-3xl:     var(--ac-text-3xl);
+  --text-ac-4xl:     var(--ac-text-4xl);
+  --text-ac-5xl:     var(--ac-text-5xl);
+
+  --leading-ac-display: var(--ac-leading-display);
+  --leading-ac-tight:   var(--ac-leading-tight);
+  --leading-ac-snug:    var(--ac-leading-snug);
+  --leading-ac-normal:  var(--ac-leading-normal);
+  --leading-ac-relaxed: var(--ac-leading-relaxed);
+  --leading-ac-loose:   var(--ac-leading-loose);
+
+  --tracking-ac-tight:   var(--ac-tracking-tight);
+  --tracking-ac-wide:    var(--ac-tracking-wide);
+  --tracking-ac-wider:   var(--ac-tracking-wider);
+  --tracking-ac-widest:  var(--ac-tracking-widest);
+
+  /* ---------- Forma e profundidade (prefixo ac-) ---------- */
+  --radius-ac-sm:   var(--ac-radius-sm);
+  --radius-ac-md:   var(--ac-radius-md);
+  --radius-ac-lg:   var(--ac-radius-lg);
+  --radius-ac-xl:   var(--ac-radius-xl);
+  --radius-ac-2xl:  var(--ac-radius-2xl);
+  --radius-ac-pill: var(--ac-radius-pill);
+
+  --shadow-ac-sticker: var(--ac-shadow-sticker);
+  --shadow-ac-card:    var(--ac-shadow-card);
+  --shadow-ac-pop:     var(--ac-shadow-pop);
+  --shadow-ac-button:  var(--ac-shadow-button);
+
+  /* ---------- Movimento (prefixo ac-) ---------- */
+  --ease-ac-bounce: var(--ac-ease-bounce);
+  --ease-ac-out:    var(--ac-ease-out);
+}

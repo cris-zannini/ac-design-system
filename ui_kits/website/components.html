@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Componentes do site</title>
+  <link rel="stylesheet" href="../../fonts.css">
+  <link rel="stylesheet" href="../../colors_and_type.css">
+  <link rel="stylesheet" href="carousel.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--ac-bg); font-family: var(--ac-font-body); color: var(--ac-fg); }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 40px 16px 80px; }
+    header p { max-width: 640px; }
+    section { margin-top: 48px; }
+    .demo { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 24px; border: 2px solid var(--ac-border); border-radius: var(--ac-radius-lg); }
+    .demo--dark { background: var(--ac-bg-dark); border-color: var(--ac-bg-dark); }
+    .demo--grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); align-items: stretch; }
+    .demo--block { display: block; }
+    h3 { margin: 24px 0 8px; font-size: var(--ac-text-meta); font-weight: 900; letter-spacing: var(--ac-tracking-wider); text-transform: uppercase; color: var(--ac-fg-soft); }
+    pre { margin: 0; padding: 14px 16px; overflow-x: auto; background: var(--ac-surface-muted); border-radius: var(--ac-radius-md); font-family: var(--ac-font-mono); font-size: 12px; line-height: 1.6; color: var(--ac-fg); }
+    .slide { display: grid; place-items: center; aspect-ratio: 3 / 2; font-size: var(--ac-text-xl); font-weight: 900; }
+    .ac-card .ac-badge { align-self: flex-start; }
+    .ac-btn svg { width: 16px; height: 16px; }
+  </style>
+</head>
+<body>
+<div class="wrap ac-prose">
+  <header>
+    <div class="ac-eyebrow">UI kit · site</div>
+    <h1 class="ac-h1">Componentes do site</h1>
+    <p class="ac-lead">Versões em HTML estático de Button, Badge e ProductCarousel (antes em TSX/Next.js), mais Card e Alerta. Cada exemplo mostra a classe do DS e o equivalente em utilitários Tailwind v4.</p>
+    <p class="ac-small">No site, prefira as classes <code>.ac-*</code>: elas estão em <code>@layer components</code>, então um utilitário (<code>mt-4</code>, <code>w-full</code>) sempre vence quando precisar ajustar.</p>
+  </header>
+
+  <!-- ============================== BUTTON ============================== -->
+  <section>
+    <h2 class="ac-h2">Botão</h2>
+    <p>O CTA padrão é <strong>verde com texto navy</strong>. Branco sobre o verde splash dá 2,24:1 e reprova no WCAG.</p>
+
+    <h3>Variantes</h3>
+    <div class="demo">
+      <a class="ac-btn" href="#">Quero conhecer</a>
+      <a class="ac-btn ac-btn--blue" href="#">Ver apostilas</a>
+      <a class="ac-btn ac-btn--yellow" href="#">Fazer o quiz</a>
+      <a class="ac-btn ac-btn--ghost" href="#">Saiba mais</a>
+      <button class="ac-btn" disabled>Indisponível</button>
+    </div>
+    <pre>&lt;a class="ac-btn" href="/pacote-completo"&gt;Quero conhecer&lt;/a&gt;
+&lt;a class="ac-btn ac-btn--blue" href="…"&gt;…&lt;/a&gt;   &lt;!-- --yellow · --ghost · --ghost-light · --level --&gt;
+&lt;a class="ac-btn ac-btn--sm"&gt;…&lt;/a&gt;              &lt;!-- --lg · --block · --icon --&gt;
+
+&lt;!-- Equivalente Tailwind (primário) --&gt;
+&lt;a class="inline-flex items-center justify-center gap-2 rounded-ac-pill bg-brand-green px-8 py-4
+          text-ac-ui font-black uppercase leading-none tracking-ac-wide text-on-green
+          shadow-[0_4px_0_0_var(--ac-green-800)] transition ease-ac-bounce
+          hover:-translate-y-0.5 hover:bg-brand-green-600 active:translate-y-0.5"&gt;…&lt;/a&gt;</pre>
+
+    <h3>Por nível</h3>
+    <div class="demo">
+      <a class="ac-btn ac-btn--level ac-level-1" href="#">Nível 1</a>
+      <a class="ac-btn ac-btn--level ac-level-2" href="#">Nível 2</a>
+      <a class="ac-btn ac-btn--level ac-level-3" href="#">Nível 3</a>
+      <a class="ac-btn ac-btn--level ac-level-4" href="#">Nível 4</a>
+      <a class="ac-btn ac-btn--level ac-level-5" href="#">Nível 5</a>
+    </div>
+    <pre>&lt;!-- a classe .ac-level-N pode ficar no botão ou em qualquer ancestral (ex.: o &lt;main&gt; da página do nível) --&gt;
+&lt;main class="ac-level-3"&gt; … &lt;a class="ac-btn ac-btn--level"&gt;Comprar Nível 3&lt;/a&gt; … &lt;/main&gt;
+
+&lt;!-- Tailwind --&gt;
+&lt;a class="… bg-level-3 text-level-3-on shadow-[0_4px_0_0_var(--ac-level-3-dark)]"&gt;…&lt;/a&gt;</pre>
+
+    <h3>Sobre fundo escuro · com ícone · inline</h3>
+    <div class="demo demo--dark">
+      <a class="ac-btn" href="#">Quero conhecer
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="ac-btn ac-btn--ghost-light" href="#">Saiba mais</a>
+    </div>
+    <div class="demo">
+      <p style="margin:0">Ficou com dúvida? <a class="ac-btn ac-btn--inline" href="#">Fale com a gente</a> pelo WhatsApp.</p>
+    </div>
+    <pre>&lt;a class="ac-btn ac-btn--ghost-light"&gt;Saiba mais&lt;/a&gt;            &lt;!-- só sobre bg-dark --&gt;
+&lt;a class="ac-btn ac-btn--inline" target="_blank" rel="noopener"&gt;Fale com a gente&lt;/a&gt;</pre>
+  </section>
+
+  <!-- ============================== BADGE ============================== -->
+  <section>
+    <h2 class="ac-h2">Badge</h2>
+    <h3>Variantes</h3>
+    <div class="demo">
+      <span class="ac-badge">Padrão</span>
+      <span class="ac-badge ac-badge--blue">Novo</span>
+      <span class="ac-badge ac-badge--yellow">Mais vendido</span>
+      <span class="ac-badge ac-badge--green">Grátis</span>
+      <span class="ac-badge ac-badge--red">-40%</span>
+      <span class="ac-badge ac-badge--neutral">Em breve</span>
+      <span class="ac-badge ac-badge--outline">Digital</span>
+      <span class="ac-badge ac-badge--level ac-level-2">Nv2 · 4–5 anos</span>
+      <span class="ac-badge ac-badge--success">Concluído</span>
+    </div>
+    <div class="demo demo--dark">
+      <span class="ac-badge ac-badge--on-dark ac-badge--lg">Alfabetização</span>
+      <span class="ac-badge ac-badge--on-dark ac-badge--lg">Coordenação motora</span>
+      <span class="ac-badge ac-badge--on-dark ac-badge--lg">Matemática</span>
+    </div>
+    <pre>&lt;span class="ac-badge ac-badge--yellow"&gt;Mais vendido&lt;/span&gt;
+&lt;!-- --blue · --green · --red · --neutral · --outline · --level · --success · --error · --warning · --info --&gt;
+&lt;span class="ac-badge ac-badge--on-dark ac-badge--lg"&gt;Alfabetização&lt;/span&gt;   &lt;!-- antigo Badge variant="monochrome" --&gt;
+
+&lt;!-- Tailwind --&gt;
+&lt;span class="inline-flex items-center rounded-ac-pill bg-brand-yellow px-3 py-1 text-ac-micro font-black
+             uppercase leading-snug tracking-ac-wider text-on-yellow"&gt;Mais vendido&lt;/span&gt;</pre>
+  </section>
+
+  <!-- ============================== TAG ============================== -->
+  <section>
+    <h2 class="ac-h2">Tag de categoria</h2>
+    <p><strong>Cor = nível. Ícone = categoria.</strong> Categorias do blog (e, no app, tipos de atividade) não têm cor própria: todas usam o mesmo chip azul e se distinguem pelo ícone e pelo nome. Assim a cor fica reservada para os níveis.</p>
+    <div class="demo">
+      <a class="ac-tag" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"/><rect x="3" y="14" width="7" height="7" rx="1"/><circle cx="17.5" cy="17.5" r="3.5"/></svg>Educação Infantil</a>
+      <a class="ac-tag" href="#" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Alfabetização</a>
+      <a class="ac-tag" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Atividades em Casa</a>
+      <a class="ac-tag" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg>Desenvolvimento</a>
+    </div>
+    <pre>&lt;a class="ac-tag" href="/blog/alfabetizacao/"&gt;&lt;svg …book-open…/&gt;Alfabetização&lt;/a&gt;
+&lt;!-- categoria atual: aria-current="page" (ou .ac-tag--active) · sobre bg-dark: .ac-tag--on-dark --&gt;
+
+&lt;!-- Ícones (Lucide) das categorias do blog --&gt;
+Educação Infantil → shapes · Alfabetização → book-open · Atividades em Casa → house · Desenvolvimento → sprout
+
+&lt;!-- Tailwind --&gt;
+&lt;a class="inline-flex items-center gap-1.5 rounded-ac-pill bg-brand-blue-50 py-1.5 pl-2.5 pr-3.5 text-ac-meta
+          font-bold text-brand-blue-700 hover:bg-brand-blue-100"&gt;…&lt;/a&gt;</pre>
+    <p class="ac-small">Decoração dentro dos artigos (números de passo, setas de lista, etiquetas de fase) usa <code>blue-600</code>, ou a cor do nível quando o conteúdo é de um nível específico.</p>
+  </section>
+
+  <!-- ============================== CARD ============================== -->
+  <section>
+    <h2 class="ac-h2">Card</h2>
+    <div class="demo demo--grid">
+      <div class="ac-card">
+        <span class="ac-badge ac-badge--yellow">Mais vendido</span>
+        <h4 class="ac-card__title">Pacote Completo</h4>
+        <p class="ac-card__body">Todos os níveis num pacote bem feliz.</p>
+        <a class="ac-btn ac-btn--sm" href="#">Quero</a>
+      </div>
+      <a class="ac-card ac-card--level ac-level-4 ac-card--interactive" href="#" style="text-decoration:none">
+        <span class="ac-badge ac-badge--level">Nv4 · 6–7 anos</span>
+        <h4 class="ac-card__title">Apostila Nível 4</h4>
+        <p class="ac-card__body">O card inteiro é clicável; passe o mouse.</p>
+      </a>
+      <div class="ac-card ac-card--outlined">
+        <h4 class="ac-card__title">Contornado</h4>
+        <p class="ac-card__body">Sem sombra, para blocos discretos.</p>
+      </div>
+    </div>
+    <pre>&lt;div class="ac-card"&gt;                       &lt;!-- --sticker · --outlined · --brand · --soft · --warm · --level · --interactive --&gt;
+  &lt;span class="ac-badge ac-badge--yellow"&gt;Mais vendido&lt;/span&gt;
+  &lt;h4 class="ac-card__title"&gt;Pacote Completo&lt;/h4&gt;
+  &lt;p class="ac-card__body"&gt;…&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Tailwind --&gt;
+&lt;div class="flex flex-col gap-3 rounded-ac-lg bg-surface p-6 shadow-ac-card"&gt;…&lt;/div&gt;</pre>
+  </section>
+
+  <!-- ============================== ALERT ============================== -->
+  <section>
+    <h2 class="ac-h2">Alerta</h2>
+    <div class="demo demo--grid">
+      <div class="ac-alert ac-alert--success" role="status">Isso mesmo! Resposta certinha.</div>
+      <div class="ac-alert ac-alert--error" role="alert">Quase! Vamos tentar de novo?</div>
+    </div>
+    <pre>&lt;div class="ac-alert ac-alert--success" role="status"&gt;Isso mesmo!&lt;/div&gt;   &lt;!-- --error · --warning · --info --&gt;
+&lt;!-- quiz: #4CAF50 → success · #E53935 → error --&gt;
+
+&lt;!-- Tailwind --&gt;
+&lt;div class="rounded-ac-md border-2 border-success-border bg-success-bg px-4 py-3 font-bold text-success-fg"&gt;…&lt;/div&gt;</pre>
+  </section>
+
+  <!-- ============================== CAROUSEL ============================== -->
+  <section>
+    <h2 class="ac-h2">Carrossel de produto</h2>
+    <p>Scroll-snap nativo (swipe e teclado de graça), setas só no desktop, autoplay que pausa com hover/foco e desliga com <em>reduced motion</em>.</p>
+    <div class="demo demo--block">
+      <div class="ac-carousel" data-autoplay="3500" aria-label="Páginas da apostila">
+        <div class="ac-carousel__track">
+          <div class="slide" style="background:var(--ac-level-1-soft);color:var(--ac-level-1-dark)">Página 1</div>
+          <div class="slide" style="background:var(--ac-level-2-soft);color:var(--ac-level-2-dark)">Página 2</div>
+          <div class="slide" style="background:var(--ac-level-3-soft);color:var(--ac-level-3-dark)">Página 3</div>
+          <div class="slide" style="background:var(--ac-level-5-soft);color:var(--ac-level-5-dark)">Página 4</div>
+        </div>
+      </div>
+    </div>
+    <pre>&lt;link rel="stylesheet" href="carousel.css"&gt;
+&lt;div class="ac-carousel" data-autoplay="3500" aria-label="Fotos da apostila"&gt;   &lt;!-- + ac-carousel--on-dark em bg-dark --&gt;
+  &lt;div class="ac-carousel__track"&gt;
+    &lt;img src="/img/nivel-1/01.webp" alt="Capa da apostila Nível 1" width="600" height="400"&gt;
+    &lt;img src="/img/nivel-1/02.webp" alt="Atividade de traçado" width="600" height="400" loading="lazy"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="carousel.js" defer&gt;&lt;/script&gt;</pre>
+  </section>
+</div>
+<script src="carousel.js"></script>
+</body>
+</html>

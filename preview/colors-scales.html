@@ -2,42 +2,86 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="../fonts.css">
 <link rel="stylesheet" href="../colors_and_type.css">
 <style>
-  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); }
-  .scale { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; }
-  .chip { aspect-ratio: 1; border-radius: 12px; box-shadow: 0 1px 2px rgba(0,0,0,.06); position: relative; }
-  .chip span { position: absolute; bottom: 6px; left: 8px; right: 8px; font-size: 10px; font-family: var(--ac-font-mono); color: rgba(255,255,255,0.95); text-shadow: 0 1px 1px rgba(0,0,0,.25); }
-  .row { margin-bottom: 12px; }
-  .label { font-weight: 900; font-size: 12px; letter-spacing: 0.1em; color: var(--ac-blue); text-transform: uppercase; margin-bottom: 6px; }
+  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); color: var(--ac-fg); }
+  .row { margin-bottom: 14px; }
+  .label { font-weight: 900; font-size: 12px; letter-spacing: 0.1em; color: var(--ac-fg-link); text-transform: uppercase; margin-bottom: 6px; }
+  .scale { display: grid; grid-template-columns: repeat(11, 1fr); gap: 6px; }
+  .chip { aspect-ratio: 1; border-radius: 10px; position: relative; box-shadow: inset 0 0 0 1px rgba(0,0,0,.05); }
+  .chip span { position: absolute; bottom: 5px; left: 6px; font-size: 10px; font-family: var(--ac-font-mono); font-weight: 700; }
+  .chip.anchor { outline: 3px solid var(--ac-fg); outline-offset: 2px; }
+  .l span { color: var(--ac-fg); }
+  .d span { color: #fff; }
+  .note { font-size: 11px; color: var(--ac-fg-soft); margin-top: 4px; }
 </style>
 </head>
 <body>
   <div class="row">
-    <div class="label">Blue</div>
+    <div class="label">Azul · âncora 500 = #0082C2 · 400 = blue-light #0096C7</div>
     <div class="scale">
-      <div class="chip" style="background:#EDF7FD;"><span style="color:#004C75;text-shadow:none">50</span></div>
-      <div class="chip" style="background:#DCEEFA;"><span style="color:#004C75;text-shadow:none">100</span></div>
-      <div class="chip" style="background:#0096C7;"><span>500</span></div>
-      <div class="chip" style="background:#0086C9;"><span>600</span></div>
-      <div class="chip" style="background:#0076B6;"><span>700</span></div>
-      <div class="chip" style="background:#005F94;"><span>800</span></div>
-      <div class="chip" style="background:#004C75;"><span>900</span></div>
-      <div class="chip" style="background:#0E2A3D;"><span>fg</span></div>
+      <div class="chip l" style="background:var(--ac-blue-50)"><span>50</span></div>
+      <div class="chip l" style="background:var(--ac-blue-100)"><span>100</span></div>
+      <div class="chip l" style="background:var(--ac-blue-200)"><span>200</span></div>
+      <div class="chip l" style="background:var(--ac-blue-300)"><span>300</span></div>
+      <div class="chip d" style="background:var(--ac-blue-400)"><span>400</span></div>
+      <div class="chip d anchor" style="background:var(--ac-blue-500)"><span>500</span></div>
+      <div class="chip d" style="background:var(--ac-blue-600)"><span>600</span></div>
+      <div class="chip d" style="background:var(--ac-blue-700)"><span>700</span></div>
+      <div class="chip d" style="background:var(--ac-blue-800)"><span>800</span></div>
+      <div class="chip d" style="background:var(--ac-blue-900)"><span>900</span></div>
+      <div class="chip d" style="background:var(--ac-navy)"><span>navy</span></div>
     </div>
   </div>
   <div class="row">
-    <div class="label">Green / Red / Yellow</div>
+    <div class="label">Verde · âncora 500 = #89BD24 · 900 = floresta</div>
     <div class="scale">
-      <div class="chip" style="background:#DCEDC8;"><span style="color:#33691E;text-shadow:none">G100</span></div>
-      <div class="chip" style="background:#8BC34A;"><span>G500</span></div>
-      <div class="chip" style="background:#689F38;"><span>G700</span></div>
-      <div class="chip" style="background:#FFCDD2;"><span style="color:#B71C1C;text-shadow:none">R100</span></div>
-      <div class="chip" style="background:#E53935;"><span>R500</span></div>
-      <div class="chip" style="background:#C62828;"><span>R700</span></div>
-      <div class="chip" style="background:#FFCA28;"><span style="color:#704600;text-shadow:none">Y500</span></div>
-      <div class="chip" style="background:#FFB300;"><span style="color:#704600;text-shadow:none">Y600</span></div>
+      <div class="chip l" style="background:var(--ac-green-50)"><span>50</span></div>
+      <div class="chip l" style="background:var(--ac-green-100)"><span>100</span></div>
+      <div class="chip l" style="background:var(--ac-green-200)"><span>200</span></div>
+      <div class="chip l" style="background:var(--ac-green-300)"><span>300</span></div>
+      <div class="chip l" style="background:var(--ac-green-400)"><span>400</span></div>
+      <div class="chip l anchor" style="background:var(--ac-green-500)"><span>500</span></div>
+      <div class="chip l" style="background:var(--ac-green-600)"><span>600</span></div>
+      <div class="chip d" style="background:var(--ac-green-700)"><span>700</span></div>
+      <div class="chip d" style="background:var(--ac-green-800)"><span>800</span></div>
+      <div class="chip d" style="background:var(--ac-green-900)"><span>900</span></div>
+      <div class="chip d" style="background:var(--ac-green-950)"><span>950</span></div>
     </div>
   </div>
+  <div class="row">
+    <div class="label">Vermelho · âncora 500 = magenta #D1104A</div>
+    <div class="scale">
+      <div class="chip l" style="background:var(--ac-red-50)"><span>50</span></div>
+      <div class="chip l" style="background:var(--ac-red-100)"><span>100</span></div>
+      <div class="chip l" style="background:var(--ac-red-200)"><span>200</span></div>
+      <div class="chip d" style="background:var(--ac-red-300)"><span>300</span></div>
+      <div class="chip d" style="background:var(--ac-red-400)"><span>400</span></div>
+      <div class="chip d anchor" style="background:var(--ac-red-500)"><span>500</span></div>
+      <div class="chip d" style="background:var(--ac-red-600)"><span>600</span></div>
+      <div class="chip d" style="background:var(--ac-red-700)"><span>700</span></div>
+      <div class="chip d" style="background:var(--ac-red-800)"><span>800</span></div>
+      <div class="chip d" style="background:var(--ac-red-900)"><span>900</span></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="label">Amarelo · âncora 500 = #FFCA28</div>
+    <div class="scale">
+      <div class="chip l" style="background:var(--ac-yellow-50)"><span>50</span></div>
+      <div class="chip l" style="background:var(--ac-yellow-100)"><span>100</span></div>
+      <div class="chip l" style="background:var(--ac-yellow-200)"><span>200</span></div>
+      <div class="chip l" style="background:var(--ac-yellow-300)"><span>300</span></div>
+      <div class="chip l" style="background:var(--ac-yellow-400)"><span>400</span></div>
+      <div class="chip l anchor" style="background:var(--ac-yellow-500)"><span>500</span></div>
+      <div class="chip l" style="background:var(--ac-yellow-600)"><span>600</span></div>
+      <div class="chip l" style="background:var(--ac-yellow-700)"><span>700</span></div>
+      <div class="chip d" style="background:var(--ac-yellow-800)"><span>800</span></div>
+      <div class="chip d" style="background:var(--ac-yellow-900)"><span>900</span></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="note">Contorno = cor da marca. Texto azul pequeno usa 600 (o 500 só passa contraste em texto grande).</div>
 </body>
 </html>

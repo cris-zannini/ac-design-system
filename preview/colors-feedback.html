@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../fonts.css">
+<link rel="stylesheet" href="../colors_and_type.css">
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<style>
+  body { margin: 0; padding: 24px; background: #fff; font-family: var(--ac-font-body); color: var(--ac-fg); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ac-alert i { width: 20px; height: 20px; flex: none; margin-top: 1px; }
+  .solids { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .solid { padding: 8px 14px; border-radius: var(--ac-radius-pill); font-weight: 900; font-size: 13px; }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="ac-alert ac-alert--success"><i data-lucide="circle-check" stroke-width="2.5"></i>Isso mesmo! Resposta certinha.</div>
+    <div class="ac-alert ac-alert--error"><i data-lucide="circle-x" stroke-width="2.5"></i>Quase! Vamos tentar de novo?</div>
+    <div class="ac-alert ac-alert--warning"><i data-lucide="triangle-alert" stroke-width="2.5"></i>Faltam só 2 perguntas.</div>
+    <div class="ac-alert ac-alert--info"><i data-lucide="info" stroke-width="2.5"></i>O resultado chega no seu e-mail.</div>
+  </div>
+  <div class="solids">
+    <span class="solid" style="background:var(--ac-success);color:var(--ac-success-on)">success</span>
+    <span class="solid" style="background:var(--ac-error);color:var(--ac-error-on)">error</span>
+    <span class="solid" style="background:var(--ac-warning);color:var(--ac-warning-on)">warning</span>
+    <span class="solid" style="background:var(--ac-info);color:var(--ac-info-on)">info</span>
+  </div>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

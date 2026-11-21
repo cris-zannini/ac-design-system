@@ -1,24 +1,16 @@
 # Aprenda em Casa — Website UI Kit
 
-A high-fidelity recreation of the marketing site at **aprendaemcasa.art.br**, built from the brand manual. The actual site code was not available so this kit is composed from the brand's visual foundations (logo, palette, splash motif, Nunito + Bangers display, generous rounding, sticker shadows).
+Two things live here:
 
-**Open `index.html`** to see the full marketing page in motion.
-
-## Components
-
-| File | What it is |
-|---|---|
-| `Header.jsx` | Top navigation with logo, links, CTA button. |
-| `Hero.jsx` | Big sticker headline over green splash, dual CTA, illustrated logo lockup. |
-| `LevelGrid.jsx` | Apostilas grid colored by level (Nv1 → ABC). |
-| `FeatureRow.jsx` | Three-up "why families love it" with Lucide icons. |
-| `Testimonial.jsx` | Quote on yellow tilt-card, family signature. |
-| `CTABand.jsx` | Big yellow band with primary button — final conversion. |
-| `Footer.jsx` | Logo + columns + tagline. |
+| File | What it is | Status |
+|---|---|---|
+| `components.html` | Button, Badge, Card, Alert and product Carousel as **static HTML**, each with its Tailwind v4 equivalent. Replaces the former `Button.tsx`, `Badge.tsx` and `ProductCarousel.tsx`, which depended on Next.js. | **Use this** for production markup. |
+| `carousel.css` + `carousel.js` | Dependency-free scroll-snap carousel (swipe, keyboard, arrows on desktop, autoplay that pauses on hover/focus and respects reduced motion). | Production-ready. |
+| `index.html` + `*.jsx` + `site.css` | Full-page recreation of the marketing site, composed from the brand manual before the real site code was available. | **Visual reference only.** Section layouts (Header, Hero, LevelGrid, FeatureRow, Testimonial, CTABand, Footer) — not the site's real markup. Needs a local server (`python3 -m http.server`) because Babel loads the `.jsx` files over XHR. |
 
 ## Patterns
 
-- **Buttons** — pills, hard-drop shadow, hover rises and lightens.
-- **Cards** — 24 px radius, blue-tinted card shadow, optional sticker outline.
-- **Display copy** — Bangers, ALL CAPS, white outline + flat blue drop.
-- **Splash** — `border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%` for organic blobs.
+- **Buttons** — green pill by default, navy text, 4px "3D" bottom edge; hover rises, press sinks.
+- **Cards** — 16 px radius, blue-tinted card shadow; level cards carry a 6px top stripe in the level color.
+- **Display copy** — Nunito Black, uppercase, slight negative tracking.
+- **Splash** — `border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%` for organic blobs (`.ac-splash`).
