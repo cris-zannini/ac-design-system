@@ -1,0 +1,13 @@
+{
+  "name": "ac-ds-tailwind-test",
+  "private": true,
+  "description": "Prova que tailwind.css compila no Tailwind v4 e não sobrescreve utilitários padrão.",
+  "scripts": {
+    "build": "tailwindcss -i input.css -o out.css",
+    "test": "npm run build && node check.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.0",
+    "tailwindcss": "4.3.0"
+  }
+}

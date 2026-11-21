@@ -1,111 +1,264 @@
 /* ============================================================
-   APRENDA EM CASA — Design Tokens
+   APRENDA EM CASA — Design Tokens  (v1.1)
    colors_and_type.css
+
+   Camadas:
+     1. Primitivos   — paleta da marca + escalas (--ac-blue-500…)
+     2. Semânticos   — papéis de uso (--ac-fg, --ac-border, --ac-success…)
+     3. Componentes  — .ac-btn, .ac-badge, .ac-card, .ac-alert (em @layer components)
+
+   Fontes: @font-face fica em fonts.css (importe junto, ou carregue a
+   Nunito por outro caminho). Tailwind v4: importe tailwind.css, que
+   inclui este arquivo e mapeia os tokens para o @theme.
+
+   Contraste: todo par "fundo + texto" declarado aqui passa WCAG AA
+   (4.5:1) para texto normal, exceto onde o comentário diz "só texto
+   grande" (≥ 24px, ou ≥ 18.66px em negrito).
    ============================================================ */
 
-/* ---------- Fonts ---------- */
-
-
-/* Nunito — official body face (full weight + italic family) */
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-ExtraLight.ttf") format("truetype"); font-weight: 200; font-style: normal; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-ExtraLightItalic.ttf") format("truetype"); font-weight: 200; font-style: italic; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-Light.ttf") format("truetype"); font-weight: 300; font-style: normal; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-LightItalic.ttf") format("truetype"); font-weight: 300; font-style: italic; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-Medium.ttf") format("truetype"); font-weight: 500; font-style: normal; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-MediumItalic.ttf") format("truetype"); font-weight: 500; font-style: italic; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-SemiBold.ttf") format("truetype"); font-weight: 600; font-style: normal; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-SemiBoldItalic.ttf") format("truetype"); font-weight: 600; font-style: italic; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-BoldItalic.ttf") format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-ExtraBold.ttf") format("truetype"); font-weight: 800; font-style: normal; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-ExtraBoldItalic.ttf") format("truetype"); font-weight: 800; font-style: italic; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-Black.ttf") format("truetype"); font-weight: 900; font-style: normal; font-display: swap; }
-@font-face { font-family: "Nunito"; src: url("fonts/Nunito-BlackItalic.ttf") format("truetype"); font-weight: 900; font-style: italic; font-display: swap; }
-
 :root {
-  /* ---------- Brand palette (Manual §07 + ajustes da equipe) ---------- */
-  --ac-blue:           #0082C2;  /* Azul Principal */
-  --ac-green-splash:   #89BD24;  /* Verde Splash */
-  --ac-yellow:         #FFCA28;  /* Amarelo Lúdico */
-  --ac-lilac:          #BA8DC0;  /* Lilás */
-  --ac-teal:           #46B9B0;  /* Verde-Água */
-  --ac-orange:         #F08055;  /* Laranja */
-  --ac-magenta:        #D1104A;  /* Magenta */
+  /* ==========================================================
+     1. PRIMITIVOS
+     ========================================================== */
+
+  /* ---------- Paleta da marca (Manual §07 + ajustes da equipe) ---------- */
+  --ac-blue:           #0082C2;  /* Azul Principal — branco sobre ele: 4.22 (só texto grande) */
+  --ac-blue-light:     #0096C7;  /* Azul Claro — fundos de hero, acentos */
+  --ac-green-splash:   #89BD24;  /* Verde Splash — CTA, splash; texto navy (6.61), nunca branco (2.24) */
+  --ac-yellow:         #FFCA28;  /* Amarelo Lúdico — texto azul-900 (5.99) ou navy */
+  --ac-lilac:          #BA8DC0;  /* Lilás — Nv1 */
+  --ac-teal:           #46B9B0;  /* Verde-Água — Nv2 */
+  --ac-orange:         #F08055;  /* Laranja — Nv3 */
+  --ac-magenta:        #D1104A;  /* Magenta / Vermelho Principal — Nv4; branco sobre ele: 5.41 */
   --ac-forest:         #385725;  /* Verde Floresta */
+  --ac-forest-dark:    #233817;  /* Verde Floresta escuro */
+  --ac-navy:           #0E2A3D;  /* Navy — cor de texto */
   --ac-white:          #FFFFFF;
 
-  /* Legacy aliases (kept for back-compat in components) */
-  --ac-blue-light:     #46B9B0;  /* now Verde-Água */
-  --ac-red:            #D1104A;  /* now Magenta */
+  /* Aliases */
+  --ac-green:          var(--ac-green-splash);
+  --ac-red:            var(--ac-magenta);
 
-  /* Tints / shades — derived for hover & surfaces */
-  --ac-blue-900:       #004C75;
-  --ac-blue-800:       #005F94;
-  --ac-blue-700:       #0076B6;
-  --ac-blue-600:       #0086C9;
-  --ac-blue-500:       #0096C7;
-  --ac-blue-100:       #DCEEFA;
+  /* ---------- Azul ---------- */
   --ac-blue-50:        #EDF7FD;
+  --ac-blue-100:       #DCEEFA;
+  --ac-blue-200:       #BFE0F0;
+  --ac-blue-300:       #80C1E1;
+  --ac-blue-400:       #0096C7;  /* = blue-light */
+  --ac-blue-500:       #0082C2;  /* = blue (marca) */
+  --ac-blue-600:       #0075AF;  /* texto azul pequeno / botão azul — branco 5.04 */
+  --ac-blue-700:       #00679B;
+  --ac-blue-800:       #005A88;  /* fundo de seção escura — branco 7.45 */
+  --ac-blue-900:       #004C75;
 
-  --ac-green-700:      #689F38;
-  --ac-green-500:      #8BC34A;
-  --ac-green-100:      #DCEDC8;
+  /* ---------- Verde (ancorado no Verde Splash) ---------- */
+  --ac-green-50:       #F3F8E9;
+  --ac-green-100:      #E7F2D3;
+  --ac-green-200:      #D0E5A7;
+  --ac-green-300:      #B8D77C;
+  --ac-green-400:      #A1CA50;
+  --ac-green-500:      #89BD24;  /* = green-splash */
+  --ac-green-600:      #77A51F;  /* hover do CTA — navy 5.07 */
+  --ac-green-700:      #658E1A;  /* = level-5-dark */
+  --ac-green-800:      #4E721F;  /* texto verde / sucesso — branco 5.60 */
+  --ac-green-900:      #385725;  /* = forest */
+  --ac-green-950:      #233817;  /* = forest-dark */
 
-  --ac-red-700:        #C62828;
-  --ac-red-500:        #E53935;
-  --ac-red-100:        #FFCDD2;
+  /* ---------- Vermelho (ancorado no Magenta) ---------- */
+  --ac-red-50:         #FBECF1;
+  --ac-red-100:        #F6CFDB;
+  --ac-red-200:        #ED9FB7;
+  --ac-red-300:        #E37092;
+  --ac-red-400:        #DA406E;
+  --ac-red-500:        #D1104A;  /* = magenta */
+  --ac-red-600:        #B40E40;
+  --ac-red-700:        #980C36;  /* = level-4-dark */
+  --ac-red-800:        #7A0A2C;
+  --ac-red-900:        #5C0821;
 
-  --ac-yellow-600:     #FFB300;
-  --ac-yellow-500:     #FFCA28;
+  /* ---------- Amarelo ---------- */
+  --ac-yellow-50:      #FFFBEE;
   --ac-yellow-100:     #FFF4C4;
+  --ac-yellow-200:     #FFEAA9;
+  --ac-yellow-300:     #FFDA69;
+  --ac-yellow-400:     #FFD248;
+  --ac-yellow-500:     #FFCA28;  /* = yellow */
+  --ac-yellow-600:     #FFB300;
+  --ac-yellow-700:     #E09600;
+  --ac-yellow-800:     #B37400;
+  --ac-yellow-900:     #7A4F00;  /* texto de aviso */
 
-  /* Per-level cover splashes */
+  /* ---------- Neutros (cinza puro — superfícies, bordas, desabilitado) ----------
+     Texto NÃO usa esta escala: use --ac-fg / --ac-fg-muted / --ac-fg-soft
+     (navy, alinhados à marca). Exceção: texto sobre cinza em UI neutra. */
+  --ac-neutral-0:      #FFFFFF;
+  --ac-neutral-50:     #FAFAFA;
+  --ac-neutral-100:    #F5F5F5;
+  --ac-neutral-200:    #F0F0F0;
+  --ac-neutral-300:    #E8E8E8;
+  --ac-neutral-400:    #E0E0E0;
+  --ac-neutral-500:    #AAAAAA;  /* desabilitado (decorativo) */
+  --ac-neutral-600:    #888888;  /* borda de input — 3.54 (≥ 3:1 p/ não-texto) */
+  --ac-neutral-700:    #666666;  /* menor cinza aceitável p/ texto — 5.74 */
+  --ac-neutral-800:    #444444;
+  --ac-neutral-900:    #333333;
+  --ac-neutral-950:    #111111;
+
+  /* ---------- Níveis das apostilas ----------
+     base  → capa, fundos, splash. Texto: --ac-level-N-on
+     dark  → hover/borda 3D, texto colorido sobre branco (só texto grande)
+     soft  → fundo suave de card/badge                                  */
   --ac-level-1:        #BA8DC0;  /* Nv1 lilás */
+  --ac-level-1-dark:   #946A9A;
+  --ac-level-1-soft:   #F7F1F7;
+  --ac-level-1-on:     var(--ac-navy);   /* 5.40 */
+
   --ac-level-2:        #46B9B0;  /* Nv2 verde-água */
+  --ac-level-2-dark:   #31867F;
+  --ac-level-2-soft:   #E9F7F6;
+  --ac-level-2-on:     var(--ac-navy);   /* 6.23 */
+
   --ac-level-3:        #F08055;  /* Nv3 laranja */
+  --ac-level-3-dark:   #C45D33;
+  --ac-level-3-soft:   #FDF0EB;
+  --ac-level-3-on:     var(--ac-navy);   /* 5.59 */
+
   --ac-level-4:        #D1104A;  /* Nv4 magenta */
+  --ac-level-4-dark:   #980C36;
+  --ac-level-4-soft:   #FAE2E9;
+  --ac-level-4-on:     var(--ac-white);  /* 5.41 */
+
   --ac-level-5:        #89BD24;  /* Nv5 verde splash */
-  --ac-level-abc:      #0082C2;  /* ABC azul principal */
+  --ac-level-5-dark:   #658E1A;
+  --ac-level-5-soft:   #F1F7E5;
+  --ac-level-5-on:     var(--ac-navy);   /* 6.61 */
 
-  /* ---------- Semantic surfaces ---------- */
-  --ac-bg:             var(--ac-white);
-  --ac-bg-soft:        var(--ac-blue-50);
-  --ac-bg-tint:        var(--ac-blue-100);
-  --ac-fg:             #0E2A3D;          /* deep navy for body */
-  --ac-fg-muted:       #4A6A7E;
-  --ac-fg-soft:        #7A92A2;
-  --ac-on-blue:        var(--ac-white);
+  --ac-level-abc:      #0082C2;  /* ABC azul principal (capa) */
+  --ac-level-abc-dark: #005A88;
+  --ac-level-abc-soft: #E0F0F8;
+  --ac-level-abc-on:   var(--ac-white);  /* 4.22 — só texto grande; UI usa blue-600 */
+
+  /* ==========================================================
+     2. SEMÂNTICOS
+     ========================================================== */
+
+  /* ---------- Texto ---------- */
+  --ac-fg:             var(--ac-navy);   /* corpo — 14.6 */
+  --ac-fg-muted:       #4A6A7E;          /* secundário — 5.75 */
+  --ac-fg-soft:        #5F7A8C;          /* meta, legenda — 4.52 */
+  --ac-fg-disabled:    var(--ac-neutral-500);
+  --ac-fg-brand:       var(--ac-blue);       /* títulos (texto grande) */
+  --ac-fg-link:        var(--ac-blue-600);   /* links e texto azul pequeno */
+  --ac-fg-on-dark:     var(--ac-white);
+  --ac-fg-on-dark-muted: rgba(255, 255, 255, 0.82);
+
+  /* ---------- "On" — texto sobre cor sólida ---------- */
+  --ac-on-blue:        var(--ac-white);      /* sobre blue-600+ */
+  --ac-on-green:       var(--ac-navy);
   --ac-on-yellow:      var(--ac-blue-900);
-  --ac-border:         #D5E6F0;
-  --ac-border-strong:  var(--ac-blue);
+  --ac-on-red:         var(--ac-white);
 
-  /* ---------- Type families ---------- */
+  /* ---------- Superfícies ---------- */
+  --ac-bg:             var(--ac-white);      /* chão infinito */
+  --ac-bg-soft:        var(--ac-blue-50);    /* seção alternada fria */
+  --ac-bg-tint:        var(--ac-blue-100);
+  --ac-bg-warm:        #FFF9F0;              /* seção alternada quente */
+  --ac-bg-dark:        var(--ac-blue-800);   /* seção escura */
+  --ac-surface:        var(--ac-white);      /* card */
+  --ac-surface-subtle: var(--ac-neutral-50);
+  --ac-surface-muted:  var(--ac-neutral-100);
+
+  /* ---------- Bordas ---------- */
+  --ac-border:         var(--ac-neutral-300);  /* divisores, cards */
+  --ac-border-strong:  var(--ac-neutral-600);  /* inputs (≥ 3:1) */
+  --ac-border-brand:   var(--ac-blue);
+  --ac-focus:          var(--ac-blue-600);
+
+  /* ---------- Feedback ----------
+     solid  → fundo cheio (texto: -on)
+     bg     → fundo suave de alerta
+     border → borda do alerta
+     fg     → texto/ícone sobre branco ou sobre -bg                    */
+  --ac-success:        var(--ac-green-800);  /* branco 5.60 */
+  --ac-success-on:     var(--ac-white);
+  --ac-success-bg:     var(--ac-green-50);
+  --ac-success-border: var(--ac-green-300);
+  --ac-success-fg:     var(--ac-green-800);
+
+  --ac-error:          var(--ac-red-500);    /* branco 5.41 */
+  --ac-error-on:       var(--ac-white);
+  --ac-error-bg:       var(--ac-red-50);
+  --ac-error-border:   var(--ac-red-200);
+  --ac-error-fg:       var(--ac-red-700);
+
+  --ac-warning:        var(--ac-yellow-500); /* navy 9.69 */
+  --ac-warning-on:     var(--ac-navy);
+  --ac-warning-bg:     var(--ac-yellow-50);
+  --ac-warning-border: var(--ac-yellow-300);
+  --ac-warning-fg:     var(--ac-yellow-900);
+
+  --ac-info:           var(--ac-blue-600);   /* branco 5.04 */
+  --ac-info-on:        var(--ac-white);
+  --ac-info-bg:        var(--ac-blue-50);
+  --ac-info-border:    var(--ac-blue-200);
+  --ac-info-fg:        var(--ac-blue-700);
+
+  /* ==========================================================
+     TIPOGRAFIA
+     ========================================================== */
+
+  /* ---------- Famílias ---------- */
   --ac-font-body:      "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --ac-font-display:   "Nunito", system-ui, sans-serif;
+  --ac-font-display:   "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;  /* sempre em 900 */
   --ac-font-mono:      ui-monospace, SFMono-Regular, "Cascadia Code", Menlo, monospace;
 
-  /* ---------- Type scale (1.200 minor third, anchored at 16) ---------- */
-  --ac-text-xs:        12px;
-  --ac-text-sm:        14px;
-  --ac-text-base:      16px;
-  --ac-text-md:        18px;
-  --ac-text-lg:        22px;
-  --ac-text-xl:        28px;
-  --ac-text-2xl:       36px;
-  --ac-text-3xl:       48px;
+  /* ---------- Tamanhos ----------
+     Ponta pequena por papel (é onde o site mais vive); daí pra cima,
+     escala ~1.25.                                                       */
+  --ac-text-micro:     11px;  /* badge, legal */
+  --ac-text-caption:   12px;  /* eyebrow, legenda */
+  --ac-text-meta:      13px;  /* metadado, helper de form, botão sm */
+  --ac-text-sm:        14px;  /* corpo pequeno */
+  --ac-text-ui:        15px;  /* botão, nav, corpo compacto */
+  --ac-text-base:      16px;  /* corpo */
+  --ac-text-md:        18px;  /* lead, botão lg */
+  --ac-text-lg:        22px;  /* h4 */
+  --ac-text-xl:        28px;  /* h3 */
+  --ac-text-2xl:       36px;  /* h2 */
+  --ac-text-3xl:       48px;  /* h1 */
   --ac-text-4xl:       64px;
-  --ac-text-5xl:       84px;
+  --ac-text-5xl:       84px;  /* display */
+  --ac-text-xs:        var(--ac-text-caption);  /* alias v1.0 */
 
-  /* ---------- Weights ---------- */
-  --ac-weight-light:    300;
-  --ac-weight-regular:  400;
-  --ac-weight-semibold: 600;
-  --ac-weight-bold:     700;
-  --ac-weight-black:    900;
+  /* ---------- Entrelinha ---------- */
+  --ac-leading-display: 0.95;
+  --ac-leading-tight:   1.15;
+  --ac-leading-snug:    1.3;
+  --ac-leading-normal:  1.5;
+  --ac-leading-relaxed: 1.6;
+  --ac-leading-loose:   1.8;
 
-  /* ---------- Spacing (4px base) ---------- */
+  /* ---------- Pesos ---------- */
+  --ac-weight-light:     300;
+  --ac-weight-regular:   400;
+  --ac-weight-medium:    500;
+  --ac-weight-semibold:  600;
+  --ac-weight-bold:      700;
+  --ac-weight-extrabold: 800;
+  --ac-weight-black:     900;
+
+  /* ---------- Espaçamento entre letras ---------- */
+  --ac-tracking-tight:   -0.02em;
+  --ac-tracking-normal:  0;
+  --ac-tracking-wide:    0.03em;   /* botões */
+  --ac-tracking-wider:   0.08em;   /* badges */
+  --ac-tracking-widest:  0.18em;   /* eyebrow */
+
+  /* ==========================================================
+     ESPAÇO, FORMA, PROFUNDIDADE, MOVIMENTO
+     ========================================================== */
+
+  /* ---------- Espaçamento (base 4px — bate com o --spacing do Tailwind) ---------- */
   --ac-space-1:  4px;
   --ac-space-2:  8px;
   --ac-space-3:  12px;
@@ -116,23 +269,25 @@
   --ac-space-8:  64px;
   --ac-space-9:  96px;
 
-  /* ---------- Radii ---------- */
-  --ac-radius-sm:  8px;
-  --ac-radius-md:  16px;
-  --ac-radius-lg:  24px;
-  --ac-radius-xl:  32px;
-  --ac-radius-pill: 999px;
+  /* ---------- Raios ---------- */
+  --ac-radius-sm:   8px;   /* input, chip pequeno */
+  --ac-radius-md:   12px;  /* alerta, thumb */
+  --ac-radius-lg:   16px;  /* card (padrão) */
+  --ac-radius-xl:   24px;  /* card grande, seção */
+  --ac-radius-2xl:  32px;  /* hero, bloco destaque */
+  --ac-radius-pill: 999px; /* botão, badge */
 
-  /* ---------- Strokes ---------- */
+  /* ---------- Traços ---------- */
   --ac-stroke-1: 1.5px;
   --ac-stroke-2: 2px;
   --ac-stroke-3: 3px;
   --ac-stroke-4: 4px;
 
-  /* ---------- Shadows ----------
-     Sticker:  flat white outline + tight drop, mimics the logo.
-     Card:     soft blue-tinted lift for content surfaces.
-     Pop:      hover lift on interactive elements.                       */
+  /* ---------- Sombras ----------
+     Sticker:  contorno branco + queda curta, imita o logo.
+     Card:     elevação suave azulada para superfícies.
+     Pop:      hover de elementos interativos.
+     Button:   "borda 3D" do botão azul (cada variante define a sua). */
   --ac-shadow-sticker:
     0 0 0 3px var(--ac-white),
     0 4px 0 0 rgba(0, 76, 117, 0.22);
@@ -144,153 +299,395 @@
   --ac-shadow-button:
     0 4px 0 0 var(--ac-blue-900);
 
-  /* ---------- Motion ---------- */
+  /* ---------- Movimento ---------- */
   --ac-ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ac-ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
   --ac-dur-fast:    140ms;
   --ac-dur-base:    220ms;
   --ac-dur-slow:    400ms;
+
+  /* ---------- Nível corrente (ver .ac-level-*) ---------- */
+  --ac-level:       var(--ac-blue-600);
+  --ac-level-dark:  var(--ac-blue-900);
+  --ac-level-soft:  var(--ac-level-abc-soft);
+  --ac-level-on:    var(--ac-white);
 }
 
 /* ============================================================
-   Semantic element styles — opt-in via class .ac-prose
+   Contexto de nível — aplique numa seção/card e os componentes
+   "--level" dentro dela herdam a cor:
+     <section class="ac-level-3"> <a class="ac-btn ac-btn--level">…
    ============================================================ */
+.ac-level-1   { --ac-level: var(--ac-level-1); --ac-level-dark: var(--ac-level-1-dark); --ac-level-soft: var(--ac-level-1-soft); --ac-level-on: var(--ac-level-1-on); }
+.ac-level-2   { --ac-level: var(--ac-level-2); --ac-level-dark: var(--ac-level-2-dark); --ac-level-soft: var(--ac-level-2-soft); --ac-level-on: var(--ac-level-2-on); }
+.ac-level-3   { --ac-level: var(--ac-level-3); --ac-level-dark: var(--ac-level-3-dark); --ac-level-soft: var(--ac-level-3-soft); --ac-level-on: var(--ac-level-3-on); }
+.ac-level-4   { --ac-level: var(--ac-level-4); --ac-level-dark: var(--ac-level-4-dark); --ac-level-soft: var(--ac-level-4-soft); --ac-level-on: var(--ac-level-4-on); }
+.ac-level-5   { --ac-level: var(--ac-level-5); --ac-level-dark: var(--ac-level-5-dark); --ac-level-soft: var(--ac-level-5-soft); --ac-level-on: var(--ac-level-5-on); }
+/* ABC em UI usa blue-600 (o azul da capa só passa contraste em texto grande) */
+.ac-level-abc { --ac-level: var(--ac-blue-600); --ac-level-dark: var(--ac-level-abc-dark); --ac-level-soft: var(--ac-level-abc-soft); --ac-level-on: var(--ac-level-abc-on); }
 
-.ac-prose,
-.ac-body {
-  font-family: var(--ac-font-body);
-  color: var(--ac-fg);
-  font-size: var(--ac-text-base);
-  line-height: 1.55;
-  font-weight: var(--ac-weight-regular);
-}
+@layer components {
 
-.ac-display,
-.ac-h1 {
-  font-family: var(--ac-font-display);
-  letter-spacing: 0.02em;
-  color: var(--ac-blue);
-  font-size: var(--ac-text-5xl);
-  line-height: 0.95;
-  text-transform: uppercase;
-  -webkit-text-stroke: 1px var(--ac-white);
-  text-shadow: 0 3px 0 rgba(0, 76, 117, 0.18);
-}
+  /* ============================================================
+     Tipografia — classes opt-in
+     ============================================================ */
 
-.ac-h2 {
-  font-family: var(--ac-font-display);
-  font-size: var(--ac-text-3xl);
-  line-height: 1;
-  color: var(--ac-blue);
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
+  .ac-prose,
+  .ac-body {
+    font-family: var(--ac-font-body);
+    font-size: var(--ac-text-base);
+    font-weight: var(--ac-weight-regular);
+    line-height: var(--ac-leading-normal);
+    color: var(--ac-fg);
+  }
 
-.ac-h3 {
-  font-family: var(--ac-font-body);
-  font-weight: var(--ac-weight-black);
-  font-size: var(--ac-text-2xl);
-  line-height: 1.1;
-  color: var(--ac-blue);
-}
+  .ac-display {
+    font-family: var(--ac-font-display);
+    font-weight: var(--ac-weight-black);
+    font-size: clamp(var(--ac-text-3xl), 6vw + 1rem, var(--ac-text-5xl));
+    line-height: var(--ac-leading-display);
+    letter-spacing: var(--ac-tracking-tight);
+    text-transform: uppercase;
+    color: var(--ac-fg-brand);
+    text-shadow: 0 3px 0 rgba(0, 76, 117, 0.18);
+  }
 
-.ac-h4 {
-  font-family: var(--ac-font-body);
-  font-weight: var(--ac-weight-bold);
-  font-size: var(--ac-text-xl);
-  line-height: 1.2;
-  color: var(--ac-fg);
-}
+  .ac-h1 {
+    font-family: var(--ac-font-display);
+    font-weight: var(--ac-weight-black);
+    font-size: clamp(var(--ac-text-xl), 3.5vw + 1rem, var(--ac-text-3xl));
+    line-height: var(--ac-leading-tight);
+    letter-spacing: var(--ac-tracking-tight);
+    color: var(--ac-fg-brand);
+  }
 
-.ac-eyebrow {
-  font-family: var(--ac-font-body);
-  font-weight: var(--ac-weight-black);
-  font-size: var(--ac-text-sm);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ac-blue-light);
-}
+  .ac-h2 {
+    font-family: var(--ac-font-display);
+    font-weight: var(--ac-weight-black);
+    font-size: clamp(var(--ac-text-lg), 2.5vw + 1rem, var(--ac-text-2xl));
+    line-height: var(--ac-leading-tight);
+    color: var(--ac-fg-brand);
+  }
 
-.ac-lead {
-  font-family: var(--ac-font-body);
-  font-weight: var(--ac-weight-semibold);
-  font-size: var(--ac-text-lg);
-  line-height: 1.45;
-  color: var(--ac-fg-muted);
-}
+  .ac-h3 {
+    font-family: var(--ac-font-body);
+    font-weight: var(--ac-weight-black);
+    font-size: clamp(var(--ac-text-md), 1.5vw + 1rem, var(--ac-text-xl));
+    line-height: var(--ac-leading-snug);
+    color: var(--ac-fg-brand);
+  }
 
-.ac-p { font-size: var(--ac-text-base); line-height: 1.6; }
-.ac-small { font-size: var(--ac-text-sm); color: var(--ac-fg-muted); }
+  .ac-h4 {
+    font-family: var(--ac-font-body);
+    font-weight: var(--ac-weight-extrabold);
+    font-size: var(--ac-text-lg);
+    line-height: var(--ac-leading-snug);
+    color: var(--ac-fg);
+  }
 
-.ac-mono { font-family: var(--ac-font-mono); font-size: var(--ac-text-sm); }
+  .ac-eyebrow {
+    font-family: var(--ac-font-body);
+    font-weight: var(--ac-weight-black);
+    font-size: var(--ac-text-caption);
+    letter-spacing: var(--ac-tracking-widest);
+    text-transform: uppercase;
+    color: var(--ac-fg-link);
+  }
 
-/* ============================================================
-   Utility — buttons (used in cards and the UI kit)
-   ============================================================ */
+  .ac-lead {
+    font-family: var(--ac-font-body);
+    font-weight: var(--ac-weight-semibold);
+    font-size: var(--ac-text-md);
+    line-height: var(--ac-leading-normal);
+    color: var(--ac-fg-muted);
+  }
 
-.ac-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--ac-space-2);
-  padding: 14px 24px;
-  border-radius: var(--ac-radius-pill);
-  border: none;
-  cursor: pointer;
-  font-family: var(--ac-font-body);
-  font-weight: var(--ac-weight-black);
-  font-size: var(--ac-text-md);
-  letter-spacing: 0.02em;
-  text-decoration: none;
-  transition: transform var(--ac-dur-fast) var(--ac-ease-bounce),
-              box-shadow var(--ac-dur-base) var(--ac-ease-out),
-              background-color var(--ac-dur-base) var(--ac-ease-out);
-  user-select: none;
-  white-space: nowrap;
-}
+  .ac-p       { font-size: var(--ac-text-base); line-height: var(--ac-leading-relaxed); }
+  .ac-small   { font-size: var(--ac-text-sm); line-height: var(--ac-leading-normal); color: var(--ac-fg-muted); }
+  .ac-caption { font-size: var(--ac-text-caption); line-height: var(--ac-leading-normal); color: var(--ac-fg-soft); }
+  .ac-micro   { font-size: var(--ac-text-micro); line-height: var(--ac-leading-normal); color: var(--ac-fg-soft); }
+  .ac-mono    { font-family: var(--ac-font-mono); font-size: var(--ac-text-sm); }
 
-.ac-btn--primary {
-  background: var(--ac-blue);
-  color: var(--ac-white);
-  box-shadow: var(--ac-shadow-button);
-}
-.ac-btn--primary:hover {
-  background: var(--ac-blue-light);
-  transform: translateY(-2px);
-}
-.ac-btn--primary:active { transform: translateY(2px) scale(0.98); box-shadow: 0 1px 0 var(--ac-blue-900); }
+  .ac-link {
+    color: var(--ac-fg-link);
+    font-weight: var(--ac-weight-bold);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+  .ac-link:hover { color: var(--ac-blue-800); }
 
-.ac-btn--yellow {
-  background: var(--ac-yellow);
-  color: var(--ac-blue-900);
-  box-shadow: 0 4px 0 var(--ac-yellow-600);
-}
-.ac-btn--yellow:hover { transform: translateY(-2px); }
+  /* ============================================================
+     Botão
+     Padrão = CTA verde. Variantes: --blue, --yellow, --ghost,
+     --ghost-light (sobre fundo escuro), --level (herda .ac-level-*).
+     Tamanhos: --sm, (md), --lg. Modificadores: --block, --icon.
+     ============================================================ */
 
-.ac-btn--ghost {
-  background: transparent;
-  color: var(--ac-blue);
-  box-shadow: inset 0 0 0 3px var(--ac-blue);
-}
-.ac-btn--ghost:hover { background: var(--ac-blue-50); }
+  .ac-btn {
+    --_bg:       var(--ac-green-500);
+    --_bg-hover: var(--ac-green-600);
+    --_fg:       var(--ac-on-green);
+    --_edge:     var(--ac-green-800);
+    --_edge-y:   4px;
+    --_ring:     0 0 #0000;
 
-/* ============================================================
-   Splash backdrop motif — green organic blob
-   ============================================================ */
-.ac-splash {
-  position: relative;
-  isolation: isolate;
-}
-.ac-splash::before {
-  content: "";
-  position: absolute;
-  inset: -8% -10%;
-  background: var(--ac-green-splash);
-  border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%;
-  z-index: -1;
-  animation: ac-splash-drift 14s var(--ac-ease-out) infinite alternate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--ac-space-2);
+    padding: 16px 32px;
+    border: 0;
+    border-radius: var(--ac-radius-pill);
+    background: var(--_bg);
+    color: var(--_fg);
+    box-shadow: var(--_ring), 0 var(--_edge-y) 0 0 var(--_edge);
+    font-family: var(--ac-font-body);
+    font-weight: var(--ac-weight-black);
+    font-size: var(--ac-text-ui);
+    line-height: 1;
+    letter-spacing: var(--ac-tracking-wide);
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition: transform var(--ac-dur-fast) var(--ac-ease-bounce),
+                box-shadow var(--ac-dur-base) var(--ac-ease-out),
+                background-color var(--ac-dur-base) var(--ac-ease-out);
+  }
+  .ac-btn svg { flex: none; width: 1.15em; height: 1.15em; }
+  .ac-btn:hover {
+    background: var(--_bg-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--_ring), 0 calc(var(--_edge-y) + 2px) 0 0 var(--_edge);
+  }
+  .ac-btn:active {
+    transform: translateY(2px);
+    box-shadow: var(--_ring), 0 calc(var(--_edge-y) - 2px) 0 0 var(--_edge);
+  }
+  .ac-btn:focus-visible {
+    outline: 3px solid var(--ac-focus);
+    outline-offset: 3px;
+  }
+  .ac-btn:disabled,
+  .ac-btn[aria-disabled="true"] {
+    --_bg:       var(--ac-neutral-200);
+    --_bg-hover: var(--ac-neutral-200);
+    --_fg:       var(--ac-neutral-600);
+    --_edge:     var(--ac-neutral-400);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: var(--_ring), 0 var(--_edge-y) 0 0 var(--_edge);
+  }
+
+  .ac-btn--primary { /* = padrão; mantido por clareza */ }
+
+  .ac-btn--blue {
+    --_bg:       var(--ac-blue-600);
+    --_bg-hover: var(--ac-blue-700);
+    --_fg:       var(--ac-on-blue);
+    --_edge:     var(--ac-blue-900);
+  }
+  .ac-btn--yellow {
+    --_bg:       var(--ac-yellow-500);
+    --_bg-hover: var(--ac-yellow-400);
+    --_fg:       var(--ac-on-yellow);
+    --_edge:     var(--ac-yellow-700);
+  }
+  .ac-btn--level {
+    --_bg:       var(--ac-level);
+    --_bg-hover: var(--ac-level);
+    --_fg:       var(--ac-level-on);
+    --_edge:     var(--ac-level-dark);
+  }
+  .ac-btn--ghost {
+    --_bg:       transparent;
+    --_bg-hover: var(--ac-blue-50);
+    --_fg:       var(--ac-blue-600);
+    --_edge:     transparent;
+    --_ring:     inset 0 0 0 3px currentColor;
+    --_edge-y:   0px;
+  }
+  .ac-btn--ghost-light {
+    --_bg:       transparent;
+    --_bg-hover: rgba(255, 255, 255, 0.14);
+    --_fg:       var(--ac-white);
+    --_edge:     transparent;
+    --_ring:     inset 0 0 0 3px currentColor;
+    --_edge-y:   0px;
+  }
+  .ac-btn--ghost:hover,
+  .ac-btn--ghost-light:hover,
+  .ac-btn--ghost:active,
+  .ac-btn--ghost-light:active { box-shadow: var(--_ring); }
+  .ac-btn--ghost-light:focus-visible { outline-color: var(--ac-white); }
+
+  .ac-btn--sm    { --_edge-y: 3px; padding: 10px 20px; font-size: var(--ac-text-meta); }
+  .ac-btn--lg    { --_edge-y: 5px; padding: 20px 40px; font-size: var(--ac-text-md); }
+  .ac-btn--block { display: flex; width: 100%; }
+  /* Pílula dentro de um parágrafo ("…clique <a class="ac-btn ac-btn--inline">aqui</a>") */
+  .ac-btn--inline {
+    --_edge-y: 2px;
+    padding: 0.2em 0.75em;
+    margin-inline: 0.15em;
+    font-size: 0.9em;
+    letter-spacing: 0;
+    text-transform: none;
+    vertical-align: baseline;
+  }
+  .ac-btn--icon  { padding: 0; width: 48px; height: 48px; }
+  .ac-btn--icon.ac-btn--sm { width: 36px; height: 36px; }
+  .ac-btn--icon.ac-btn--lg { width: 60px; height: 60px; }
+  .ac-btn--ghost.ac-btn--sm,
+  .ac-btn--ghost-light.ac-btn--sm { --_ring: inset 0 0 0 2px currentColor; }
+
+  /* ============================================================
+     Badge
+     Padrão = azul suave. Sólidos: --blue, --yellow, --green, --red.
+     Outros: --neutral, --outline, --on-dark, --level, --success,
+     --error, --warning, --info.
+     ============================================================ */
+
+  .ac-badge {
+    --_bg: var(--ac-blue-50);
+    --_fg: var(--ac-blue-700);
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ac-space-1);
+    padding: 4px 12px;
+    border-radius: var(--ac-radius-pill);
+    background: var(--_bg);
+    color: var(--_fg);
+    font-family: var(--ac-font-body);
+    font-weight: var(--ac-weight-black);
+    font-size: var(--ac-text-micro);
+    line-height: 1.4;
+    letter-spacing: var(--ac-tracking-wider);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ac-badge--blue    { --_bg: var(--ac-blue-600);     --_fg: var(--ac-on-blue); }
+  .ac-badge--yellow  { --_bg: var(--ac-yellow-500);   --_fg: var(--ac-on-yellow); }
+  .ac-badge--green   { --_bg: var(--ac-green-500);    --_fg: var(--ac-on-green); }
+  .ac-badge--red     { --_bg: var(--ac-red-500);      --_fg: var(--ac-on-red); }
+  .ac-badge--neutral { --_bg: var(--ac-neutral-100);  --_fg: var(--ac-fg-muted); }
+  .ac-badge--level   { --_bg: var(--ac-level);        --_fg: var(--ac-level-on); }
+  .ac-badge--success { --_bg: var(--ac-success-bg);   --_fg: var(--ac-success-fg); }
+  .ac-badge--error   { --_bg: var(--ac-error-bg);     --_fg: var(--ac-error-fg); }
+  .ac-badge--warning { --_bg: var(--ac-warning-bg);   --_fg: var(--ac-warning-fg); }
+  .ac-badge--info    { --_bg: var(--ac-info-bg);      --_fg: var(--ac-info-fg); }
+  .ac-badge--outline {
+    --_bg: transparent;
+    --_fg: var(--ac-blue-600);
+    padding: 2px 10px;
+    border: 2px solid currentColor;
+  }
+  .ac-badge--on-dark { --_bg: rgba(255, 255, 255, 0.14); --_fg: var(--ac-fg-on-dark); }
+  /* Maior e em caixa normal — listas de conteúdo, filtros */
+  .ac-badge--lg {
+    padding: 8px 16px;
+    font-size: var(--ac-text-meta);
+    font-weight: var(--ac-weight-bold);
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .ac-badge--lg.ac-badge--outline { padding: 6px 14px; }
+
+  /* ============================================================
+     Card
+     Padrão = branco + sombra azulada, raio 16.
+     Variantes: --sticker, --outlined, --brand, --soft, --warm,
+     --level (faixa superior na cor do nível), --interactive.
+     ============================================================ */
+
+  .ac-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ac-space-3);
+    padding: var(--ac-space-5);
+    background: var(--ac-surface);
+    color: var(--ac-fg);
+    border-radius: var(--ac-radius-lg);
+    box-shadow: var(--ac-shadow-card);
+  }
+  .ac-card--sticker  { box-shadow: var(--ac-shadow-sticker); }
+  .ac-card--outlined { box-shadow: none; border: var(--ac-stroke-2) solid var(--ac-border); }
+  .ac-card--brand    { box-shadow: 0 4px 0 var(--ac-blue-900); border: var(--ac-stroke-2) solid var(--ac-blue); }
+  .ac-card--soft     { box-shadow: none; background: var(--ac-bg-soft); }
+  .ac-card--warm     { box-shadow: none; background: var(--ac-bg-warm); }
+  .ac-card--level    { border-top: 6px solid var(--ac-level); }
+  .ac-card--level.ac-card--soft { background: var(--ac-level-soft); }
+  .ac-card--interactive {
+    cursor: pointer;
+    transition: transform var(--ac-dur-base) var(--ac-ease-bounce),
+                box-shadow var(--ac-dur-base) var(--ac-ease-out);
+  }
+  .ac-card--interactive:hover { transform: translateY(-4px); box-shadow: var(--ac-shadow-pop); }
+  .ac-card--interactive:focus-within { outline: 3px solid var(--ac-focus); outline-offset: 3px; }
+
+  .ac-card__title { margin: 0; font-weight: var(--ac-weight-black); font-size: var(--ac-text-md); line-height: var(--ac-leading-snug); color: var(--ac-fg-brand); }
+  .ac-card__body  { margin: 0; font-size: var(--ac-text-sm); line-height: var(--ac-leading-normal); color: var(--ac-fg-muted); }
+
+  /* ============================================================
+     Alerta — feedback de quiz, formulários, avisos
+     ============================================================ */
+
+  .ac-alert {
+    --_bg: var(--ac-info-bg);
+    --_fg: var(--ac-info-fg);
+    --_border: var(--ac-info-border);
+
+    display: flex;
+    align-items: flex-start;
+    gap: var(--ac-space-3);
+    padding: var(--ac-space-3) var(--ac-space-4);
+    border: var(--ac-stroke-2) solid var(--_border);
+    border-radius: var(--ac-radius-md);
+    background: var(--_bg);
+    color: var(--_fg);
+    font-family: var(--ac-font-body);
+    font-weight: var(--ac-weight-bold);
+    font-size: var(--ac-text-ui);
+    line-height: var(--ac-leading-normal);
+  }
+  .ac-alert--success { --_bg: var(--ac-success-bg); --_fg: var(--ac-success-fg); --_border: var(--ac-success-border); }
+  .ac-alert--error   { --_bg: var(--ac-error-bg);   --_fg: var(--ac-error-fg);   --_border: var(--ac-error-border); }
+  .ac-alert--warning { --_bg: var(--ac-warning-bg); --_fg: var(--ac-warning-fg); --_border: var(--ac-warning-border); }
+  .ac-alert--info    { /* = padrão */ }
+
+  /* ============================================================
+     Splash — blob verde orgânico atrás de um elemento
+     ============================================================ */
+
+  .ac-splash {
+    position: relative;
+    isolation: isolate;
+  }
+  .ac-splash::before {
+    content: "";
+    position: absolute;
+    inset: -8% -10%;
+    background: var(--ac-green-splash);
+    border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%;
+    z-index: -1;
+    animation: ac-splash-drift 14s var(--ac-ease-out) infinite alternate;
+  }
 }
 
 @keyframes ac-splash-drift {
   0%   { border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%; transform: rotate(-2deg); }
   100% { border-radius: 50% 50% 60% 40% / 55% 45% 55% 45%; transform: rotate(3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-btn,
+  .ac-card--interactive { transition: none; }
+  .ac-btn:hover,
+  .ac-btn:active,
+  .ac-card--interactive:hover { transform: none; }
+  .ac-splash::before { animation: none; }
 }
